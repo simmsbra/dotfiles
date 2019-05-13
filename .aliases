@@ -5,6 +5,7 @@ alias gm='git merge'
 alias gmn='git merge --no-ff'
 alias gr='git rebase'
 alias gri='git rebase --interactive'
+alias grc='git rebase --continue'
 alias gs='git status'
 alias gsh='git show'
 
