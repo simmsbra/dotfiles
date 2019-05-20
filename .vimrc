@@ -21,7 +21,6 @@ set wildignorecase
 
 " auto-closing
 inoremap " ""<left>
-inoremap ' ''<left>
 inoremap ( ()<left>
 inoremap [ []<left>
 inoremap { {}<left>
