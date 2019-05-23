@@ -14,6 +14,7 @@ alias gsh='git show'
 
 alias mygc='gcc -g -Wall -std=c11'
 
+alias v='vim'
 alias ll='ls -alF --color=auto'
 alias eu='du -ahd1 | sort -h'
 alias mkd='mkdir'
