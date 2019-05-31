@@ -18,11 +18,3 @@ autocmd FileType html setlocal shiftwidth=2 tabstop=2
 autocmd FileType css setlocal shiftwidth=2 tabstop=2
 
 set wildignorecase
-
-" auto-closing
-inoremap " ""<left>
-inoremap < <><left>
-inoremap ( ()<left>
-inoremap [ []<left>
-inoremap { {}<left>
-inoremap {<CR> {<CR>}<ESC>O
