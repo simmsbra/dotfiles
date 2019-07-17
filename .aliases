@@ -15,6 +15,7 @@ alias gs='git status'
 alias gsh='git show'
 alias gst='git stash'
 alias gstp='git stash pop'
+alias gstl='git stash list'
 
 alias mygc='gcc -g -Wall -std=c11'
 
