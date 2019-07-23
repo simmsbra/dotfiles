@@ -17,6 +17,12 @@ alias gst='git stash'
 alias gstp='git stash pop'
 alias gstl='git stash list'
 
+# git "super status" (relies on aliases defined above)
+alias gss='echo "_________________________________________DIFF";     gd;   echo ""; \
+           echo "_________________________________________STATUS";   gs;   echo ""; \
+           echo "_________________________________________STASHES";  gstl; echo ""; \
+           echo "_________________________________________BRANCHES"; gb;   echo "";'
+
 alias mygc='gcc -g -Wall -std=c11'
 
 alias v='vim'
