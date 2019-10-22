@@ -7,6 +7,8 @@ set number
 set relativenumber
 set list
 set listchars=tab:>-,trail:~
+set colorcolumn=81
+highlight ColorColumn ctermbg=5
 
 set autoindent
 set expandtab
@@ -20,6 +22,7 @@ autocmd FileType css setlocal shiftwidth=2 tabstop=2
 set wildignorecase
 
 nmap ;w :w<CR>
+noremap Q :set colorcolumn=<CR>
 
 imap .t <Esc>
 vmap .t <Esc>
