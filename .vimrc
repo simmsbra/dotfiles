@@ -6,7 +6,7 @@ set showcmd     " display incomplete commands
 set number
 set relativenumber
 set list
-set listchars=tab:>-,trail:~
+set listchars=tab:>-,trail:~,extends:>,precedes:<
 set colorcolumn=81
 highlight ColorColumn ctermbg=5
 set mouse=
