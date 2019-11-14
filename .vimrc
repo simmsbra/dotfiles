@@ -31,3 +31,5 @@ vmap .t <Esc>
 imap {if if () {<CR>}<Esc>kf(a
 imap {f for () {<CR>}<Esc>kf(a
 imap {fe foreach () {<CR>}<Esc>kf(a
+
+set pastetoggle=<F2>
