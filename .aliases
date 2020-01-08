@@ -10,9 +10,9 @@ alias gl='git log --decorate --graph'
 alias gm='git merge'
 alias gmn='git merge --no-ff'
 alias gmv='git mv'
-alias gr='git rebase --preserve-merges'
+alias gr='git rebase --rebase-merges'
+alias gri='git rebase --rebase-merges --interactive'
 alias gra='git rebase --abort'
-alias gri='git rebase --preserve-merges --interactive'
 alias grc='git rebase --continue'
 alias grs='git reset'
 alias grsh='git reset --hard'
@@ -21,6 +21,9 @@ alias gsh='git show'
 alias gst='git stash'
 alias gstp='git stash pop'
 alias gstl='git stash list'
+
+alias ggr='git rebase --preserve-merges'                 # deprecated as of 2.22
+alias ggri='git rebase --preserve-merges --interactive'  # deprecated as of 2.22
 
 # git "super status" (relies on aliases defined above)
 alias gss='echo "_________________________________________DIFF";     gd;   echo ""; \
