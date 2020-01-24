@@ -20,6 +20,7 @@ alias grsh='git reset --hard'
 alias gs='git status'
 alias gsh='git show'
 alias gst='git stash'
+alias gstd='git stash drop'
 alias gstp='git stash pop'
 alias gstl='git stash list'
 
