@@ -33,3 +33,5 @@ imap {f for () {<CR>}<Esc>kf(a
 imap {fe foreach () {<CR>}<Esc>kf(a
 
 set pastetoggle=<F2>
+
+noremap <F3> :set foldmethod=indent<CR>
