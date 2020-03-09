@@ -24,8 +24,8 @@ set wildignorecase
 
 nmap ;w :w<CR>
 noremap Q :set colorcolumn=<CR>
-imap .t <Esc>
-vmap .t <Esc>
+imap ,t <Esc>
+vmap ,t <Esc>
 
 " C-like flow control block snippets
 imap {if if () {<CR>}<Esc>kf(a
