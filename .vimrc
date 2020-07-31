@@ -25,6 +25,7 @@ set wildignorecase
 nmap ;w :w<CR>
 imap ,t <Esc>
 vmap ,t <Esc>
+nmap ,t <Nop>
 
 set pastetoggle=<F2>
 noremap Q :set colorcolumn=<CR>
