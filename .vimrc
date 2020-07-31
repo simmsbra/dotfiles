@@ -23,15 +23,14 @@ autocmd FileType css setlocal shiftwidth=2 tabstop=2
 set wildignorecase
 
 nmap ;w :w<CR>
-noremap Q :set colorcolumn=<CR>
 imap ,t <Esc>
 vmap ,t <Esc>
+
+set pastetoggle=<F2>
+noremap Q :set colorcolumn=<CR>
+noremap <F3> :set foldmethod=indent<CR>
 
 " C-like flow control block snippets
 imap {if if () {<CR>}<Esc>kf(a
 imap {f for () {<CR>}<Esc>kf(a
 imap {fe foreach () {<CR>}<Esc>kf(a
-
-set pastetoggle=<F2>
-
-noremap <F3> :set foldmethod=indent<CR>
