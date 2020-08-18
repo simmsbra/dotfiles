@@ -23,6 +23,7 @@ autocmd FileType css setlocal shiftwidth=2 tabstop=2
 set wildignorecase
 
 nmap ;w :w<CR>
+nmap ;n :nohlsearch<CR>
 imap ,t <Esc>
 vmap ,t <Esc>
 nmap ,t <Nop>
