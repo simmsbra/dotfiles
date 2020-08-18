@@ -1,33 +1,37 @@
-" some copied from defaults.vim
 set nocompatible
 
-set ruler       " show the cursor position all the time
-set showcmd     " display incomplete commands
+" display stuff
+set ruler
 set number
 set relativenumber
 set list
 set listchars=tab:>-,trail:~,extends:>,precedes:<
+set hlsearch
 set colorcolumn=81
 highlight ColorColumn ctermbg=5
-set mouse=
 
+" this block is related to indentation (using 4 spaces)
 set autoindent
 set expandtab
 set shiftwidth=4
 set softtabstop=4
 set tabstop=4
-
+" use smaller indentations for HTML, since it usually has lots of nesting
 autocmd FileType html setlocal shiftwidth=2 tabstop=2
-autocmd FileType css setlocal shiftwidth=2 tabstop=2
 
+" misc
 set wildignorecase
+set showcmd
+set mouse=
 
-nmap ;w :w<CR>
+" mappings for frequently used actions
+nmap ;w :write<CR>
 nmap ;n :nohlsearch<CR>
 imap ,t <Esc>
 vmap ,t <Esc>
 nmap ,t <Nop>
 
+" mappings for less frequently used actions
 set pastetoggle=<F2>
 noremap Q :set colorcolumn=<CR>
 noremap <F3> :set foldmethod=indent<CR>
