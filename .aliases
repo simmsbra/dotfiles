@@ -28,10 +28,12 @@ alias ggr='git rebase --preserve-merges'                 # deprecated as of 2.22
 alias ggri='git rebase --preserve-merges --interactive'  # deprecated as of 2.22
 
 # git "super status" (relies on aliases defined above)
-alias gss='echo "_________________________________________DIFF";     gd;   echo ""; \
-           echo "_________________________________________STATUS";   gs;   echo ""; \
-           echo "_________________________________________STASHES";  gstl; echo ""; \
-           echo "_________________________________________BRANCHES"; gb;   echo "";'
+alias gss='
+    echo "__________________________________________________________DIFF"; gd;
+    echo "________________________________________________________STATUS"; gs;
+    echo "_______________________________________________________STASHES"; gstl;
+    echo "______________________________________________________BRANCHES"; gb;
+'
 
 alias mygc='gcc -g -Wall -std=c11'
 
