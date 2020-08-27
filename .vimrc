@@ -20,6 +20,7 @@ set tabstop=4
 autocmd FileType html setlocal shiftwidth=2 tabstop=2
 
 " misc
+set wildmenu
 set wildignorecase
 set showcmd
 set mouse=
