@@ -9,6 +9,7 @@ set listchars=tab:>-,trail:~,extends:>,precedes:<
 set hlsearch
 set colorcolumn=81
 highlight ColorColumn ctermbg=5
+syntax on
 
 " this block is related to indentation (using 4 spaces)
 set autoindent
