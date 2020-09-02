@@ -41,5 +41,6 @@ noremap <F3> :set foldmethod=indent<CR>
 " C-like flow control block snippets
 imap {if if () {<CR>}<Esc>kf(a
 imap {el if () {<CR>} else {<CR>}<Esc>kkf(a
+imap {ie if () {<CR>} else if () {<CR>} else {<CR>}<Esc>kkkf(a
 imap {f for () {<CR>}<Esc>kf(a
 imap {fe foreach () {<CR>}<Esc>kf(a
