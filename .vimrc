@@ -29,6 +29,7 @@ set mouse=
 " mappings for frequently used actions
 nmap ;w :write<CR>
 nmap ;n :nohlsearch<CR>
+nmap ;s :syntax sync fromstart<CR>
 imap ,t <Esc>
 vmap ,t <Esc>
 nmap ,t <Nop>
