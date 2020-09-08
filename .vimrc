@@ -34,6 +34,8 @@ nmap ;s :syntax sync fromstart<CR>
 imap ,t <Esc>
 vmap ,t <Esc>
 nmap ,t <Nop>
+inoremap <C-n> <C-p>
+inoremap <C-p> <C-n>
 
 " mappings for less frequently used actions
 set pastetoggle=<F2>
