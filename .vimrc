@@ -28,6 +28,9 @@ set wildignorecase
 set showcmd
 set mouse=
 
+" behavior of certain actions
+set backspace=indent,eol,start
+
 " mappings for frequently used actions
 nmap ;w :write<CR>
 nmap ;n :nohlsearch<CR>
