@@ -7,9 +7,10 @@ set relativenumber
 set list
 set listchars=tab:>-,trail:~,extends:>,precedes:<
 set hlsearch
-syntax on
-colorscheme peachpuff
 set colorcolumn=81
+syntax on
+colorscheme pablo
+highlight Folded ctermbg=None ctermfg=DarkGrey
 highlight ColorColumn ctermbg=DarkMagenta ctermfg=White
 
 " this block is related to indentation (using 4 spaces)
