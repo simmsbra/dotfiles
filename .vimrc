@@ -1,6 +1,7 @@
 set nocompatible
 
 " display stuff
+set showcmd
 set ruler
 set number
 set relativenumber
@@ -28,6 +29,10 @@ function MyFoldText()
     return result . ' '
 endfunction
 set hlsearch
+" abort highlighting matching paren-like characters if it's producing a
+" noticeable slowdown. this slowdown can happen when moving the cursor over a
+" large fold surrounded by matching brackets
+let g:matchparen_timeout=16
 set colorcolumn=81
 syntax on
 colorscheme pablo
@@ -46,7 +51,6 @@ autocmd FileType html setlocal shiftwidth=2 tabstop=2
 " misc
 set wildmenu
 set wildignorecase
-set showcmd
 set mouse=
 
 " behavior of certain actions
