@@ -65,6 +65,10 @@ vmap ,t <Esc>
 nmap ,t <Nop>
 inoremap <C-n> <C-p>
 inoremap <C-p> <C-n>
+" i want to be able to do one normal mode command, like p, while in insert mode
+" but without losing my current identation. this can be done with the action of
+" <C-\><C-o> but <C-o> is easier to type
+inoremap <C-o> <C-\><C-o>
 
 " mappings for less frequently used actions
 set pastetoggle=<F2>
