@@ -32,7 +32,7 @@ set hlsearch
 " abort highlighting matching paren-like characters if it's producing a
 " noticeable slowdown. this slowdown can happen when moving the cursor over a
 " large fold surrounded by matching brackets
-let g:matchparen_timeout=16
+let g:matchparen_timeout=4
 set colorcolumn=81
 syntax on
 colorscheme pablo
