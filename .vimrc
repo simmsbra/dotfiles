@@ -3,16 +3,14 @@ set nocompatible
 " display stuff
 set showcmd
 set ruler
-set number
-set relativenumber
-set list
-set listchars=tab:>-,trail:~,extends:>,precedes:<
+set number relativenumber
+set list listchars=tab:>-,trail:~,extends:>,precedes:<
 " remove | characters from vertical splits
 " make hyphens after foldtext be full-width bars so they connect to eachother
 set fillchars=vert:\ ,fold:─
 " change the beginning of folds to look like ─┼──... instead of +--...
 set foldtext=MyFoldText()
-function MyFoldText()
+function! MyFoldText()
     " First get the default text from the built-in vim function that is normally
     " used to set the foldtext option
     let result = foldtext()
@@ -60,6 +58,9 @@ set backspace=indent,eol,start
 nmap ;w :write<CR>
 nmap ;n :nohlsearch<CR>
 nmap ;s :syntax sync fromstart<CR>
+" toggle line numbers so can highlight text with mouse (for copying) without
+" also selecting the line number text
+nmap ;l :set number! relativenumber!<CR>
 imap ,t <Esc>
 vmap ,t <Esc>
 nmap ,t <Nop>
