@@ -8,20 +8,17 @@ set list listchars=tab:>-,trail:~,extends:>,precedes:<
 " remove | characters from vertical splits
 " make hyphens after foldtext be full-width bars so they connect to eachother
 set fillchars=vert:\ ,fold:─
-" change the beginning of folds to look like ─┼──... instead of +--...
 set foldtext=MyFoldText()
 function! MyFoldText()
     " First get the default text from the built-in vim function that is normally
     " used to set the foldtext option
     let result = foldtext()
 
-    " Replace the - chars that immediately follow the + with ─ chars.
-    " The regex matches any - char that has the following right before it:
-    " beginning of string, + char, zero or more - chars
-    " The ()@<= thing is called, in regex terms, a positive lookbehind
-    let result = substitute(result, '\(^+-*\)\@<=-', '─', 'g')
-    " Replace the first + at the beginning of the text with ─┼
-    let result = substitute(result, '^+', '─┼', '')
+    " Change the beginning of text to look like ─┼─── (with a fixed width)
+    " instead of +--... (with a variable width due to the number of hyphens
+    " representing the " fold level). Also, add a space between the ─┼─── and
+    " the number of folded lines that comes afterward.
+    let result = substitute(result, '^+-\+', '─┼─── ', '')
 
     " A space between this foldtext and the following fold fillchars looks good
     return result . ' '
