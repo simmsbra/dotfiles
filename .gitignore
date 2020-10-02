@@ -1,4 +1,4 @@
-*
+/*
 
 !.gitignore
 
@@ -6,3 +6,9 @@
 !.tmux.conf
 !.vimrc
 !.zshrc
+
+!.vim/
+.vim/*
+!.vim/colors/
+.vim/colors/*
+!.vim/colors/portal.vim

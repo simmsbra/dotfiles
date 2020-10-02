@@ -30,9 +30,7 @@ set hlsearch
 let g:matchparen_timeout=4
 set colorcolumn=81
 syntax on
-colorscheme pablo
-highlight Folded ctermbg=None ctermfg=DarkGrey
-highlight ColorColumn ctermbg=DarkMagenta ctermfg=White
+colorscheme portal
 
 " this block is related to indentation (using 4 spaces)
 set autoindent
