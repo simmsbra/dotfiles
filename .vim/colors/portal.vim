@@ -32,3 +32,5 @@ highlight EndOfBuffer cterm=None ctermfg=bg
 highlight StatusLineNC cterm=reverse
 " if this is not subtle enough, LightMagenta or LightCyan are good alternatives
 highlight StatusLine cterm=None ctermbg=10 ctermfg=bg
+
+highlight PmenuSel cterm=None ctermbg=fg ctermfg=bg
