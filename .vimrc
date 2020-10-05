@@ -51,7 +51,7 @@ set backspace=indent,eol,start
 
 " mappings for frequently used actions
 nmap ;w :write<CR>
-nmap ;n :nohlsearch<CR>
+nmap ;n :nohlsearch<CR>:let @/ = ""<CR>
 nmap ;s :syntax sync fromstart<CR>
 " toggle line numbers so can highlight text with mouse (for copying) without
 " also selecting the line number text
