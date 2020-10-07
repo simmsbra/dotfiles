@@ -42,6 +42,8 @@ set softtabstop=4
 set tabstop=4
 " use smaller indentations for HTML, since it usually has lots of nesting
 autocmd FileType html setlocal shiftwidth=2 tabstop=2
+" automatically fold files based on indentions
+set foldmethod=indent
 
 " misc
 set wildmenu
@@ -71,7 +73,6 @@ inoremap <C-o> <C-\><C-o>
 " mappings for less frequently used actions
 set pastetoggle=<F2>
 noremap Q :set colorcolumn=<CR>
-noremap <F3> :set foldmethod=indent<CR>
 
 " C-like flow control block snippets
 imap {if if () {<CR>}<Esc>kf(a
