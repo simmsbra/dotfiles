@@ -31,6 +31,8 @@ let g:matchparen_timeout=4
 set colorcolumn=81
 syntax on
 colorscheme portal
+" no special styling of certain HTML tags. for example, <em> text being highlit
+let html_no_rendering=1
 
 " this block is related to indentation (using 4 spaces)
 set autoindent
