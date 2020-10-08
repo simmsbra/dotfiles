@@ -73,6 +73,8 @@ inoremap <C-o> <C-\><C-o>
 " mappings for less frequently used actions
 set pastetoggle=<F2>
 noremap Q :set colorcolumn=<CR>
+" insert current datestamp
+inoremap <F3> <C-R>=strftime("%Y-%m-%d (%a)")<CR>
 
 " C-like flow control block snippets
 imap {if if () {<CR>}<Esc>kf(a
