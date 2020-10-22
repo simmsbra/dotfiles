@@ -2,6 +2,7 @@ set nocompatible
 
 " display stuff
 set showcmd
+set laststatus=2 " always show status line, even if there's only one window open
 set ruler
 set number relativenumber
 set list listchars=tab:>-,trail:~,extends:>,precedes:<
