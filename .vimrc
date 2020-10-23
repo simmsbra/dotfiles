@@ -70,6 +70,9 @@ inoremap <C-p> <C-n>
 " but without losing my current identation. this can be done with the action of
 " <C-\><C-o> but <C-o> is easier to type
 inoremap <C-o> <C-\><C-o>
+" like zt, but leave some more lines above the cursor
+nnoremap ze zt5<C-y>
+vnoremap ze zt5<C-y>
 
 " mappings for less frequently used actions
 set pastetoggle=<F2>
