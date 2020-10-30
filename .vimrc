@@ -56,7 +56,16 @@ set backspace=indent,eol,start
 
 " mappings for frequently used actions
 nmap ;w :write<CR>
-nmap ;n :nohlsearch<CR>:let @/ = ""<CR>
+" turn off search highlighting and totally prevent n from jumping to any search
+" result.
+" to do that, you have to clear the last normal search pattern.
+" this is not enough, though, since vim will fall back to try matching against
+" the pattern from your last :substitute command. therefore, purposely make a
+" substitute command with a pattern that never matches anything.
+" (i'm using the match-less pattern from https://stackoverflow.com/a/2302992)
+" also, keeppatterns prevents that substitute command from effecting the search
+" history
+nmap ;n :let @/ = ""<CR>:keeppatterns substitute/^\b$//e<CR>:nohlsearch<CR>
 nmap ;s :syntax sync fromstart<CR>
 " toggle line numbers so can highlight text with mouse (for copying) without
 " also selecting the line number text
