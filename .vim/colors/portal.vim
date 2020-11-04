@@ -16,3 +16,6 @@ highlight StatusLineNC cterm=reverse
 highlight StatusLine cterm=None ctermbg=Cyan ctermfg=bg
 
 highlight PmenuSel cterm=None ctermbg=fg ctermfg=bg
+
+highlight Constant cterm=None ctermfg=Red
+highlight Comment cterm=None ctermfg=Magenta
