@@ -12,10 +12,12 @@ highlight Folded cterm=None ctermbg=Black ctermfg=DarkGrey
 highlight ColorColumn cterm=None ctermbg=DarkGrey ctermfg=White
 " hide the ~ chars that appear under the last line of a buffer
 highlight EndOfBuffer cterm=None ctermfg=bg
-highlight StatusLineNC cterm=reverse
+highlight StatusLineNC cterm=reverse ctermbg=None ctermfg=None
 highlight StatusLine cterm=None ctermbg=Cyan ctermfg=bg
 
 highlight PmenuSel cterm=None ctermbg=fg ctermfg=bg
 
 highlight Constant cterm=None ctermfg=Red
 highlight Comment cterm=None ctermfg=Magenta
+
+highlight Visual cterm=reverse ctermbg=None ctermfg=None
