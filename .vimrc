@@ -53,6 +53,8 @@ set mouse=
 
 " behavior of certain actions
 set backspace=indent,eol,start
+" excludes 'hor' so that horizontal movement commands don't open folds
+set foldopen=block,mark,percent,quickfix,search,tag,undo
 
 " mappings for frequently used actions
 nmap ;w :write<CR>
