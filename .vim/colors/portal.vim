@@ -21,3 +21,6 @@ highlight Constant cterm=None ctermfg=Red
 highlight Comment cterm=None ctermfg=Magenta
 
 highlight Visual cterm=reverse ctermbg=None ctermfg=None
+
+" vim defaults this to bold, which was messing with my colors
+highlight Identifier cterm=None
