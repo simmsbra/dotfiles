@@ -24,9 +24,7 @@ alias gsth='git stash show -p'
 alias gstl='git stash list'
 alias gstd='git stash drop'
 alias gstp='git stash pop'
-
-alias ggr='git rebase --preserve-merges'                 # deprecated as of 2.22
-alias ggri='git rebase --preserve-merges --interactive'  # deprecated as of 2.22
+alias gta='git tag -a'
 
 # git "super status" (relies on aliases defined above)
 alias gss='
