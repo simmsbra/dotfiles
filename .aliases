@@ -43,6 +43,7 @@ alias ll='ls -alF --color=auto'
 alias eu='du -ahd1 | sort -h'
 alias mkd='mkdir'
 alias sau='sudo apt upgrade'
+alias ea='clear'
 
 alias myjpg='jpegoptim --force --all-progressive --strip-all --totals'
 alias mypng='optipng -strip all -i 0 -o7'
