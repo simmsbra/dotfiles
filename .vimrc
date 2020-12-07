@@ -57,20 +57,22 @@ set backspace=indent,eol,start
 set foldopen=block,mark,percent,quickfix,search,tag,undo
 
 " mappings for frequently used actions
-nmap ;w :write<CR>
+nnoremap <Space> <Nop>
+:let mapleader = " "
+nnoremap <Leader>w :write<CR>
 " turn off search highlighting
-nmap ;n :nohlsearch<CR>
+nnoremap <Leader>n :nohlsearch<CR>
 " make n only jump to the next result when search results are being highlit.
 " i'd like to make the false value <Nop> for semantic purposes, but that doesn't
 " seem to work for mappings with expressions, so an empty string does the job
 nnoremap <expr> n (v:hlsearch) ? "n" : ""
-nmap ;s :syntax sync fromstart<CR>
+nnoremap <Leader>s :syntax sync fromstart<CR>
 " toggle line numbers so can highlight text with mouse (for copying) without
 " also selecting the line number text
-nmap ;u :set number! relativenumber!<CR>
-imap ,t <Esc>
-vmap ,t <Esc>
-nmap ,t <Nop>
+nnoremap <Leader>u :set number! relativenumber!<CR>
+inoremap ,t <Esc>
+vnoremap ,t <Esc>
+nnoremap ,t <Nop>
 inoremap <C-n> <C-p>
 inoremap <C-p> <C-n>
 " i want to be able to do one normal mode command, like p, while in insert mode
@@ -88,8 +90,8 @@ noremap Q :set colorcolumn=<CR>
 inoremap <F3> [<C-R>=strftime("%Y-%m-%d")<CR>] 
 
 " C-like flow control block snippets
-imap {if if () {<CR>}<Esc>kf(a
-imap {el if () {<CR>} else {<CR>}<Esc>kkf(a
-imap {ie if () {<CR>} else if () {<CR>} else {<CR>}<Esc>kkkf(a
-imap {f for () {<CR>}<Esc>kf(a
-imap {fe foreach () {<CR>}<Esc>kf(a
+inoremap {if if () {<CR>}<Esc>kf(a
+inoremap {el if () {<CR>} else {<CR>}<Esc>kkf(a
+inoremap {ie if () {<CR>} else if () {<CR>} else {<CR>}<Esc>kkkf(a
+inoremap {f for () {<CR>}<Esc>kf(a
+inoremap {fe foreach () {<CR>}<Esc>kf(a
