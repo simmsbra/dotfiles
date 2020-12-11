@@ -6,6 +6,7 @@
 !.tmux.conf
 !.vimrc
 !.zshrc
+!.gitconfig-global-gitignore
 
 !.vim/
 .vim/*
