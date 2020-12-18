@@ -15,9 +15,9 @@ function! MyFoldText()
     " used to set the foldtext option
     let result = foldtext()
 
-    " Change the beginning of text to look like ─┼─── (with a fixed width)
+    " Change the beginning of the text to look like ─┼─── (with a fixed width)
     " instead of +--... (with a variable width due to the number of hyphens
-    " representing the " fold level). Also, add a space between the ─┼─── and
+    " representing the fold level). Also, add a space between the ─┼─── and
     " the number of folded lines that comes afterward.
     let result = substitute(result, '^+-\+', '─┼─── ', '')
 

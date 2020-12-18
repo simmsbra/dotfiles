@@ -1,12 +1,12 @@
-# this file is a a gitignore file but is applied across all repos that this user
+# this file is a gitignore file but is applied across all repos that this user
 # interacts with. to make use of this file, run the following command:
 #
 # git config --global core.excludesfile "~/.gitconfig-global-gitignore"
 # (the double quotes prevent your shell from expanding the ~)
 
-# ignore vim swap files since they pollute my tab completion results.
-# the only bad side effect is that i won't be able to quickly see what vim swap
-# files exist the repo. i think it's still worth it.
+# ignore vim swap files since they pollute tab completion results.
+# the only bad side effect is that you won't be able to quickly see what vim
+# swap files exist in the repo. i think it's still worth it.
 #
 # technically, multiple swap files can exist for a file being edited, but i only
 # ever have one
