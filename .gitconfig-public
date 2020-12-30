@@ -1,0 +1,13 @@
+# this file is a gitconfig file that has options which are OK to be shared with
+# the world (not private). specifically, it doesn't set the user.email or
+# user.name options.
+#
+# to make use of this file, run the following command:
+# git config --global --add include.path "~/.gitconfig-public"
+# (the double quotes prevent your shell from expanding the ~)
+
+[core]
+	editor = vim
+	excludesfile = ~/.gitconfig-global-gitignore
+[diff]
+	tool = vimdiff

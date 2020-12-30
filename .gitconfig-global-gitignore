@@ -1,8 +1,10 @@
 # this file is a gitignore file but is applied across all repos that this user
-# interacts with. to make use of this file, run the following command:
+# interacts with. to make use of this file, either run the following command:
 #
-# git config --global core.excludesfile "~/.gitconfig-global-gitignore"
+# git config --global --add core.excludesfile "~/.gitconfig-global-gitignore"
 # (the double quotes prevent your shell from expanding the ~)
+#
+# or set the same option manually by editing your .gitconfig file setup
 
 # ignore vim swap files since they pollute tab completion results.
 # the only bad side effect is that you won't be able to quickly see what vim
