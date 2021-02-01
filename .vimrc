@@ -45,6 +45,9 @@ set tabstop=4
 autocmd FileType html setlocal shiftwidth=2 tabstop=2
 " automatically fold files based on indentions
 set foldmethod=indent
+" by default, lines that start with a # are treated differently during indent
+" folding (foldignore="#"). don't do that -- treat no lines specially.
+set foldignore=""
 
 " misc
 set wildmenu
@@ -70,7 +73,7 @@ nnoremap <expr> n (v:hlsearch) ? "n" : ""
 " refresh the syntax highlighting for when its parsing gets messed up.
 " also fix indent folds when they get broken due to a vim bug (using the
 " workaround shown here: https://github.com/vim/vim/issues/3214#issue-341341390)
-nnoremap <Leader>s :set foldignore=#<CR>:syntax sync fromstart<CR>
+nnoremap <Leader>s :set foldignore=""<CR>:syntax sync fromstart<CR>
 " toggle line numbers so can highlight text with mouse (for copying) without
 " also selecting the line number text
 nnoremap <Leader>u :set number! relativenumber!<CR>
