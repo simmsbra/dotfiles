@@ -1,5 +1,6 @@
 alias ga='git add'
 alias gb='git branch'
+alias gbd='git branch --delete'
 alias gbm='git branch --move'
 alias gc='git commit'
 alias gca='git commit --amend'
