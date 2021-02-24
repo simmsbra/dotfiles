@@ -11,3 +11,6 @@
 	excludesfile = ~/.gitconfig-global-gitignore
 [diff]
 	tool = vimdiff
+[color "diff"]
+	meta = yellow
+	frag = blue
