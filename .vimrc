@@ -62,7 +62,7 @@ set foldopen=block,mark,percent,quickfix,search,tag,undo
 " mappings for frequently used actions
 nnoremap <Space> <Nop>
 :let mapleader = " "
-nnoremap <Leader>o o<Esc>
+nnoremap <Leader>o o<Esc>k
 nnoremap <Leader>w :write<CR>
 " turn off search highlighting
 nnoremap <Leader>n :nohlsearch<CR>
