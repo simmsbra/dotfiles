@@ -12,17 +12,11 @@ compinit
 # End of lines added by compinstall
 
 
-if [ -f ~/.aliases ]; then
-    . ~/.aliases
-fi
-
-
 # make Ctrl-R work like default bash
 # search though history for pattern
 bindkey ^R history-incremental-search-backward
 # be able to go in the other direction if you overshoot your search result
 bindkey ^T history-incremental-search-forward
-
 
 # prompt with present dir and privilege character (%/#)
 PROMPT='%F{cyan}%~ %F{white}%# '
@@ -36,3 +30,11 @@ setopt HIST_IGNORE_DUPS
 setopt HIST_IGNORE_SPACE
 # when searching history, show unique results
 setopt HIST_FIND_NO_DUPS
+
+if [ -f ~/.aliases ]; then
+    . ~/.aliases
+fi
+
+if [ -f ~/.fortunes/fortunes ] && [ -f ~/.fortunes/fortunes.dat ]; then
+    fortune ~/.fortunes/
+fi
