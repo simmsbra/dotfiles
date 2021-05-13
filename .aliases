@@ -50,10 +50,6 @@ alias seu='sudo du -ahd1 | sort -h'
 alias mkd='mkdir'
 alias sau='sudo apt upgrade'
 alias ea='clear'
-# this is effectively the same as 'sudo !!', but the !! causes trouble with
-# expansion in an alias, so the fc builtin is used instead.
-# also, like when you normally do "sudo !!", this echos what it is about to run
-alias suro='echo sudo $(fc -ln -1); sudo $(fc -ln -1)'
 
 alias myjpg='jpegoptim --force --all-progressive --strip-all --totals'
 alias mypng='optipng -strip all -i 0 -o7'
