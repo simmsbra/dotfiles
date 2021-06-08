@@ -30,7 +30,12 @@ set hlsearch
 " large fold surrounded by matching brackets
 let g:matchparen_timeout=4
 set colorcolumn=81
-syntax on
+if &diff
+    " syntax highlighting looks horrible when combined with the diff colors
+    syntax off
+else
+    syntax on
+endif
 colorscheme portal
 " no special styling of certain HTML tags. for example, <em> text being highlit
 let html_no_rendering=1
