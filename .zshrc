@@ -20,6 +20,8 @@ bindkey ^T history-incremental-search-forward
 
 # prompt with present dir and privilege character (%/#)
 PROMPT='%F{cyan}%~ %F{white}%# '
+# make sure the sudoedit command uses vim
+export SUDO_EDITOR=/usr/bin/vim
 
 # lowercase letters can match uppercase letters with tab completion
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
