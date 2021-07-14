@@ -100,6 +100,18 @@ set pastetoggle=<F2>
 noremap Q :set colorcolumn=<CR>
 " insert current datestamp
 inoremap <F3> [<C-R>=strftime("%Y-%m-%d")<CR>] 
+" when using sudoedit, the original filename is not present, so filetype
+" detection (for syntax highlighting) based on filename won't work. so here are
+" custom rules to detect certain filetypes based on file content.
+function! DetectMissingFiletype()
+    if &filetype == '' " i only care when vim hasn't detected a filetype
+        " if this common apache config pattern is within the next 1024 lines
+        if search('<VirtualHost', 'cn', 1024) != 0
+            set filetype=apache
+        endif
+    endif
+endfunction
+nnoremap <Leader>x :call DetectMissingFiletype()<CR>
 
 " C-like flow control block snippets
 inoremap {if if () {<CR>}<Esc>kf(a
