@@ -105,10 +105,13 @@ inoremap <F3> [<C-R>=strftime("%Y-%m-%d")<CR>]
 " custom rules to detect certain filetypes based on file content.
 function! DetectMissingFiletype()
     if &filetype == '' " i only care when vim hasn't detected a filetype
-        " if this common apache config pattern is within the next 1024 lines
-        if search('<VirtualHost', 'cn', 1024) != 0
+        " if these common apache config patterns are within the first 1024 lines
+        let originalCursorPosition = getcurpos()
+        call cursor(1, 1)
+        if search('<VirtualHost\|<Directory', 'cn', 1024) != 0
             set filetype=apache
         endif
+        call setpos('.', originalCursorPosition)
     endif
 endfunction
 nnoremap <Leader>x :call DetectMissingFiletype()<CR>
