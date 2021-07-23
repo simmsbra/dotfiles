@@ -1,15 +1,3 @@
-set nocompatible
-
-" display stuff
-set showcmd
-set laststatus=2 " always show status line, even if there's only one window open
-set ruler
-set number relativenumber
-set list listchars=tab:>-,trail:~,extends:>,precedes:<
-" remove | characters from vertical splits
-" make hyphens after foldtext be full-width bars so they connect to eachother
-set fillchars=vert:\ ,fold:─
-set foldtext=MyFoldText()
 function! MyFoldText()
     " First get the default text from the built-in vim function that is normally
     " used to set the foldtext option
@@ -24,6 +12,35 @@ function! MyFoldText()
     " A space between this foldtext and the following fold fillchars looks good
     return result . ' '
 endfunction
+
+" when using sudoedit, the original filename is not present, so filetype
+" detection (for syntax highlighting) based on filename won't work. so here are
+" custom rules to detect certain filetypes based on file content.
+function! DetectMissingFiletype()
+    if &filetype == '' " i only care when vim hasn't detected a filetype
+        " if these common apache config patterns are within the first 1024 lines
+        let originalCursorPosition = getcurpos()
+        call cursor(1, 1)
+        if search('<VirtualHost\|<Directory', 'cn', 1024) != 0
+            set filetype=apache
+        endif
+        call setpos('.', originalCursorPosition)
+    endif
+endfunction
+
+
+set nocompatible
+
+" display stuff
+set showcmd
+set laststatus=2 " always show status line, even if there's only one window open
+set ruler
+set number relativenumber
+set list listchars=tab:>-,trail:~,extends:>,precedes:<
+" remove | characters from vertical splits
+" make hyphens after foldtext be full-width bars so they connect to eachother
+set fillchars=vert:\ ,fold:─
+set foldtext=MyFoldText()
 set hlsearch
 " abort highlighting matching paren-like characters if it's producing a
 " noticeable slowdown. this slowdown can happen when moving the cursor over a
@@ -100,20 +117,6 @@ set pastetoggle=<F2>
 noremap Q :set colorcolumn=<CR>
 " insert current datestamp
 inoremap <F3> [<C-R>=strftime("%Y-%m-%d")<CR>] 
-" when using sudoedit, the original filename is not present, so filetype
-" detection (for syntax highlighting) based on filename won't work. so here are
-" custom rules to detect certain filetypes based on file content.
-function! DetectMissingFiletype()
-    if &filetype == '' " i only care when vim hasn't detected a filetype
-        " if these common apache config patterns are within the first 1024 lines
-        let originalCursorPosition = getcurpos()
-        call cursor(1, 1)
-        if search('<VirtualHost\|<Directory', 'cn', 1024) != 0
-            set filetype=apache
-        endif
-        call setpos('.', originalCursorPosition)
-    endif
-endfunction
 nnoremap <Leader>x :call DetectMissingFiletype()<CR>
 
 " C-like flow control block snippets
