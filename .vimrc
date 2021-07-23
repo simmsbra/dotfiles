@@ -13,6 +13,14 @@ function! MyFoldText()
     return result . ' '
 endfunction
 
+function! ToggleColorColumn()
+    if &colorcolumn
+        set colorcolumn=
+    else
+        set colorcolumn=81
+    endif
+endfunction
+
 " when using sudoedit, the original filename is not present, so filetype
 " detection (for syntax highlighting) based on filename won't work. so here are
 " custom rules to detect certain filetypes based on file content.
@@ -46,7 +54,7 @@ set hlsearch
 " noticeable slowdown. this slowdown can happen when moving the cursor over a
 " large fold surrounded by matching brackets
 let g:matchparen_timeout=4
-set colorcolumn=81
+call ToggleColorColumn() " turn color column on by default
 if &diff
     " syntax highlighting looks horrible when combined with the diff colors
     syntax off
@@ -114,7 +122,7 @@ vnoremap ze zt5<C-y>
 
 " mappings for less frequently used actions
 set pastetoggle=<F2>
-noremap Q :set colorcolumn=<CR>
+noremap Q :call ToggleColorColumn()<CR>
 " insert current datestamp
 inoremap <F3> [<C-R>=strftime("%Y-%m-%d")<CR>] 
 nnoremap <Leader>x :call DetectMissingFiletype()<CR>
