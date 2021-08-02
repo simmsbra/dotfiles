@@ -71,6 +71,7 @@ set expandtab
 set shiftwidth=4
 set softtabstop=4
 set tabstop=4
+set shiftround
 " use smaller indentations for HTML, since it usually has lots of nesting
 autocmd FileType html setlocal shiftwidth=2 tabstop=2
 " automatically fold files based on indentions
