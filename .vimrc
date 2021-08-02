@@ -54,7 +54,8 @@ set hlsearch
 " noticeable slowdown. this slowdown can happen when moving the cursor over a
 " large fold surrounded by matching brackets
 let g:matchparen_timeout=4
-call ToggleColorColumn() " turn color column on by default
+" the constant 81 is repeated in the ToggleColorColumn, but that's ok
+set colorcolumn=81
 if &diff
     " syntax highlighting looks horrible when combined with the diff colors
     syntax off
