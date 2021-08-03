@@ -99,9 +99,12 @@ nnoremap <Leader>w :write<CR>
 " turn off search highlighting
 nnoremap <Leader>n :nohlsearch<CR>
 " make n only jump to the next result when search results are being highlit.
+" this way i don't get teleported out of what i'm doing if i accidentally hit n.
 " i'd like to make the false value <Nop> for semantic purposes, but that doesn't
-" seem to work for mappings with expressions, so an empty string does the job
-nnoremap <expr> n (v:hlsearch) ? "n" : ""
+" seem to work for mappings with expressions, so an empty string does the job.
+" also, the zv in the mapping just reinstates the default behavior of opening
+" folds when going to the next search result -- see :h 'foldopen'
+nnoremap <expr> n (v:hlsearch) ? "nzv" : ""
 " refresh the syntax highlighting for when its parsing gets messed up.
 " also fix indent folds when they get broken due to a vim bug (using the
 " workaround shown here: https://github.com/vim/vim/issues/3214#issue-341341390)
