@@ -35,6 +35,7 @@ function! DetectMissingFiletype()
         call setpos('.', originalCursorPosition)
     endif
 endfunction
+autocmd VimEnter * :call DetectMissingFiletype()
 
 
 set nocompatible
@@ -130,7 +131,6 @@ set pastetoggle=<F2>
 noremap Q :call ToggleColorColumn()<CR>
 " insert current datestamp
 inoremap <F3> [<C-R>=strftime("%Y-%m-%d")<CR>] 
-nnoremap <Leader>x :call DetectMissingFiletype()<CR>
 
 " C-like flow control block snippets
 inoremap {if if () {<CR>}<Esc>kf(a
