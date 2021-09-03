@@ -125,6 +125,8 @@ inoremap <C-o> <C-\><C-o>
 " like zt, but leave some more lines above the cursor
 nnoremap ze zt5<C-y>
 vnoremap ze zt5<C-y>
+" remove trailing whitespace from the lines in the current visual selection
+vnoremap <Leader>l :s/\s\+$//e<CR>
 
 " mappings for less frequently used actions
 set pastetoggle=<F2>
