@@ -83,6 +83,7 @@ set foldmethod=indent
 set foldignore=""
 
 " misc
+set history=500 " 10 times the default of 50
 set wildmenu
 set wildignorecase
 set mouse=
