@@ -42,6 +42,11 @@ alias gss='
 '
 
 alias mygc='gcc -g -Wall -std=c11'
+# the default docker ps format can be too long for my screen
+alias dps='
+    sudo docker ps --format \
+    "table {{.ID}}\t{{.Image}}\t{{.Command}}\t{{.Status}}\t{{.Ports}}\t{{.Names}}"
+'
 
 alias v='vim'
 alias ll='ls -l --all --classify --color=auto'
