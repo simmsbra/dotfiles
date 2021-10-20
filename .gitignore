@@ -1,18 +1,18 @@
 /*
 
-!.gitignore
+!/.gitignore
 
-!.aliases
-!.tmux.conf
-!.vimrc
-!.zshrc
-!.gitconfig-public
-!.gitconfig-global-gitignore
+!/.aliases
+!/.tmux.conf
+!/.vimrc
+!/.zshrc
+!/.gitconfig-public
+!/.gitconfig-global-gitignore
 
-!.vim/
-.vim/*
-!.vim/colors/
-.vim/colors/*
-!.vim/colors/portal.vim
+!/.vim/
+/.vim/*
+!/.vim/colors/
+/.vim/colors/*
+!/.vim/colors/portal.vim
 
-!.github/
+!/.github/
