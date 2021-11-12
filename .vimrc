@@ -107,6 +107,8 @@ nnoremap <Leader>n :nohlsearch<CR>
 " also, the zv in the mapping just reinstates the default behavior of opening
 " folds when going to the next search result -- see :h 'foldopen'
 nnoremap <expr> n (v:hlsearch) ? "nzv" : ""
+" make sure that after using zv, the line is vertically centered in the view
+nnoremap zv zvzz
 " refresh the syntax highlighting for when its parsing gets messed up.
 " also fix indent folds when they get broken due to a vim bug (using the
 " workaround shown here: https://github.com/vim/vim/issues/3214#issue-341341390)
