@@ -19,7 +19,9 @@ bindkey ^R history-incremental-search-backward
 bindkey ^T history-incremental-search-forward
 
 # prompt with present dir and privilege character (%/#)
-PROMPT='%F{cyan}%~ %F{white}%# '
+# if needed, it will truncate itself (eating the left side) to guarantee at
+# least 45 characters of space after the prompt
+PROMPT='%-45<...<%F{cyan}%~ %F{white}%# '
 # make sure the sudoedit command uses vim (don't need to put vim's absolute path
 # because sudo will check my PATH the program)
 export SUDO_EDITOR=vim
