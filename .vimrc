@@ -132,6 +132,8 @@ nnoremap ze zt5<C-y>
 vnoremap ze zt5<C-y>
 " remove trailing whitespace from the lines in the current visual selection
 vnoremap <Leader>l :s/\s\+$//e<CR>
+" move cursor to column 80. i frequently have to do this to split long lines
+nnoremap <Leader>8 80<Bar>
 
 " mappings for less frequently used actions
 set pastetoggle=<F2>
