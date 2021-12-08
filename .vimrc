@@ -134,6 +134,8 @@ vnoremap ze zt5<C-y>
 vnoremap <Leader>l :s/\s\+$//e<CR>
 " move cursor to column 80. i frequently have to do this to split long lines
 nnoremap <Leader>8 80<Bar>
+" easier way (in terms of typing) to call a macro
+nnoremap <Leader>q @
 
 " mappings for less frequently used actions
 set pastetoggle=<F2>
