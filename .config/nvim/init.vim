@@ -13,13 +13,36 @@ function! MyFoldText()
     return result . ' '
 endfunction
 
+" having these 2 functions is kind of verbose but i don't want to have to
+" duplicate the literal colorcolumn value anywhere
+function! ColorColumnOn()
+    set colorcolumn=81
+endfunction
+function! ColorColumnOff()
+    set colorcolumn=
+endfunction
+" this func is used by a mapping further below
 function! ToggleColorColumn()
     if &colorcolumn
-        set colorcolumn=
+        call ColorColumnOff()
     else
-        set colorcolumn=81
+        call ColorColumnOn()
     endif
 endfunction
+function! InitializeColorColumnBasedOnFileType()
+    " if filename ends with .txt
+    " :h filename-modifiers to learn about %:e
+    if expand('%:e') ==# "txt"
+        call ColorColumnOff()
+    else
+        call ColorColumnOn()
+    endif
+endfunction
+" start with color column on unless the filename ends with .txt
+" i'm not checking if vim's &filetype is 'text' because i don't want color
+" column to be off if vim doesn't know the filetype and defaults it to 'text'
+" -- for example, in my .aliases file
+autocmd VimEnter,BufReadPre * :call InitializeColorColumnBasedOnFileType()
 
 " when using sudoedit, the original filename is not present, so filetype
 " detection (for syntax highlighting) based on filename won't work. so here are
@@ -49,8 +72,6 @@ set foldtext=MyFoldText()
 " noticeable slowdown. this slowdown can happen when moving the cursor over a
 " large fold surrounded by matching brackets
 let g:matchparen_timeout=4
-" the constant 81 is repeated in the ToggleColorColumn, but that's ok
-set colorcolumn=81
 if &diff
     " syntax highlighting looks horrible when combined with the diff colors
     syntax off
