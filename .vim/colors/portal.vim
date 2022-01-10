@@ -1,11 +1,11 @@
 " see available colors:
 " :run syntax/colortest.vim
 
-let g:colors_name="portal"
-
 set background=dark
 
 highlight clear
+
+let g:colors_name="portal"
 
 highlight Normal cterm=None ctermbg=Black ctermfg=White
 highlight Folded cterm=None ctermbg=Black ctermfg=DarkGrey
