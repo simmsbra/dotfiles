@@ -50,7 +50,7 @@ alias dps='
     "table {{.ID}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}\t{{.Names}}"
 '
 
-alias v='vim'
+alias v='nvim'
 alias ll='ls -l --all --classify --color=always'
 alias lh='ls -l --all --classify --color=always --human-readable'
 alias lo='ls -l --all --classify --color=always --group-directories-first'

@@ -12,12 +12,10 @@
 # start by not including anything under .vim/
 !/.vim/
 /.vim/*
-
 # include single file under .vim/ for custom color scheme
 !/.vim/colors/
 /.vim/colors/*
 !/.vim/colors/portal.vim
-
 # include single file under .vim/ for custom speeddating plugin date format
 !/.vim/pack/
 /.vim/pack/*
@@ -32,5 +30,10 @@
 !/.vim/pack/utilities/start/speeddating/after/plugin/
 /.vim/pack/utilities/start/speeddating/after/plugin/*
 !/.vim/pack/utilities/start/speeddating/after/plugin/custom-format.vim
+
+# include neovim config
+!/.config/
+/.config/*
+!/.config/nvim/
 
 !/.github/
