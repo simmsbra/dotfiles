@@ -7,10 +7,8 @@
 # (the double quotes prevent your shell from expanding the ~)
 
 [core]
-	editor = vim
+	editor = nvim
 	excludesfile = ~/.gitconfig-global-gitignore
-[diff]
-	tool = vimdiff
 [color "diff"]
 	meta = yellow
 	frag = blue
