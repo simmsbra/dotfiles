@@ -83,6 +83,7 @@ colorscheme portal
 let html_no_rendering=1
 
 " this block is related to indentation (using 4 spaces)
+filetype indent off
 set expandtab
 set shiftwidth=4
 set softtabstop=4
