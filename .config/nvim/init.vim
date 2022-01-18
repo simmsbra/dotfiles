@@ -153,9 +153,10 @@ noremap Q :call ToggleColorColumn()<CR>
 " insert current datestamp
 inoremap <F3> <C-R>=strftime("%Y-%m-%d")<CR>
 
-" C-like flow control block snippets
+" flow control block snippets
 inoremap {if if () {<CR>}<Esc>kf(a
 inoremap {el if () {<CR>} else {<CR>}<Esc>kkf(a
 inoremap {ie if () {<CR>} else if () {<CR>} else {<CR>}<Esc>kkkf(a
 inoremap {f for () {<CR>}<Esc>kf(a
 inoremap {fe foreach () {<CR>}<Esc>kf(a
+inoremap {tc try {<CR>} catch () {<CR>}<Esc>kf(a
