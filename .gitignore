@@ -4,6 +4,7 @@
 
 !/.aliases
 !/.tmux.conf
+!/.zprofile
 !/.zshrc
 !/.gitconfig-public
 !/.gitconfig-global-gitignore
