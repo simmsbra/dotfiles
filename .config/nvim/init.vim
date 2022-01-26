@@ -139,8 +139,10 @@ vnoremap <Leader>y "+y
 " like zt, but leave some more lines above the cursor
 nnoremap ze zt5<C-y>
 vnoremap ze zt5<C-y>
-" remove trailing whitespace from the lines in the current visual selection
-vnoremap <Leader>l :s/\s\+$//e<CR>
+" remove trailing whitespace from the lines in the current visual selection.
+" substitution leaves any pattern results in the document highlit, so turn off
+" highlighting afterward.
+vnoremap <Leader>l :s/\s\+$//e<CR>:nohlsearch<CR>
 " move cursor to column 80. i frequently have to do this to split long lines
 nnoremap <Leader>8 80<Bar>
 " easier way (in terms of typing) to call a macro. originally had this on the q
