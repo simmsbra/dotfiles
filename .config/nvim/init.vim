@@ -170,6 +170,8 @@ nnoremap <Leader>8 80<Bar>
 " key, but that was bad because if i messed up typing it, i'd end up editing the
 " macro that i wanted to run and would have to recreate the macro
 nnoremap <Leader>m @
+" easier way to reload this config file (especially when making edits to it)
+nnoremap <Leader>f :source ~/.config/nvim/init.vim<CR>
 " editing a macro by pasting it into your buffer and then yanking it back into
 " the register does not work well, especially if there are things like newlines
 " in your macro. so the better way is to use a command like :let @a=''
