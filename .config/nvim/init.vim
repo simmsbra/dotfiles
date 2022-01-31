@@ -1,3 +1,24 @@
+" opens up the command-line-window and constructs a :let @a="" command for
+" editing whichever macro register letter is given. just edit the macro text and
+" then hit enter. note that you'll have to escape " characters; and if you want
+" to insert a special character, you can use C-v
+function! OpenMacroForEditing(registerLetter)
+    " to insert the macro register's literal text into the command, <C-r><C-o>
+    " (:h i_CTRL-R_CTRL-O) is used. but that wouldn't escape any double quotes,
+    " so instead of putting the macro's register letter right after <C-r><C-o>,
+    " we use the expression register (:h @=) to insert the result of escaping
+    " any double quotes within the macro register's contents
+    call feedkeys(
+        \ "q:"
+        \ .. "i"
+        \ .. ":let @" .. a:registerLetter .. "="
+        \ .. '"'
+        \ .. "\<C-r>\<C-o>=escape(@" .. a:registerLetter .. ", '\"')\<CR>"
+        \ .. '"'
+        \ .. "\<Esc>"
+    \ )
+endfunction
+
 function! MyFoldText()
     " First get the default text from the built-in vim function that is normally
     " used to set the foldtext option
@@ -149,6 +170,16 @@ nnoremap <Leader>8 80<Bar>
 " key, but that was bad because if i messed up typing it, i'd end up editing the
 " macro that i wanted to run and would have to recreate the macro
 nnoremap <Leader>m @
+" editing a macro by pasting it into your buffer and then yanking it back into
+" the register does not work well, especially if there are things like newlines
+" in your macro. so the better way is to use a command like :let @a=''
+" this mapping does most of the lifting for you so that you can just start
+" editing the macro text right away without first constructing that command.
+for letter in split('a b c d e f g h i j k l m n o p q r s t u v w x y z')
+    execute 'nnoremap'
+    \   .. '<Leader>c' .. letter
+    \   .. ' :call OpenMacroForEditing("' .. letter .. '")<CR>'
+endfor
 
 " mappings for less frequently used actions
 noremap Q :call ToggleColorColumn()<CR>
