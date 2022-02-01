@@ -182,6 +182,8 @@ for letter in split('a b c d e f g h i j k l m n o p q r s t u v w x y z')
     \   .. '<Leader>c' .. letter
     \   .. ' :call OpenMacroForEditing("' .. letter .. '")<CR>'
 endfor
+" quick way to surround an entire line with parentheses
+nnoremap <Leader>( I(<Esc>A)<Esc>^
 
 " mappings for less frequently used actions
 noremap Q :call ToggleColorColumn()<CR>
