@@ -35,6 +35,8 @@ setopt HIST_IGNORE_DUPS
 setopt HIST_IGNORE_SPACE
 # when searching history, show unique results
 setopt HIST_FIND_NO_DUPS
+# share history between shells that are open at the same time. amazing!
+setopt SHARE_HISTORY
 
 if [ -f ~/.aliases ]; then
     . ~/.aliases
