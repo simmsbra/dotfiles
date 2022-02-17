@@ -81,6 +81,16 @@ function! DetectMissingFiletype()
 endfunction
 autocmd VimEnter * :call DetectMissingFiletype()
 
+" if the file is short enough, don't have anything folded. vim can't know the
+" character height of your terminal, so i'm just using a heuristic-y value
+function! UnfoldFoldsIfFileIsShortEnoughToFitOnScreen()
+    let maxAmountOfLinesDisplayable = 41
+    if line("$") <= maxAmountOfLinesDisplayable
+        normal zR
+    endif
+endfunction
+autocmd BufReadPost * :call UnfoldFoldsIfFileIsShortEnoughToFitOnScreen()
+
 
 " display stuff
 set number relativenumber
