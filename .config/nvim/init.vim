@@ -91,6 +91,21 @@ function! UnfoldFoldsIfFileIsShortEnoughToFitOnScreen()
 endfunction
 autocmd BufReadPost * :call UnfoldFoldsIfFileIsShortEnoughToFitOnScreen()
 
+" paste clipboard content under current line while keeping the indentation level
+" of the current line (indentation within the clipboard content is preserved)
+function! PasteBlockFromClipboardAtCurrentIndentationLevel()
+    " indentation level of current line, in spaces
+    let indentationLevel = indent(line('.'))
+    " put clipboard (+ register) contents under current line
+    put +
+    " indent the pasted block by using visual block mode to insert spaces the
+    " '[ and '] are automatic marks that vim sets for the previously changed
+    " text (in this case our pasted block)
+    call feedkeys("'[\<C-v>']I" .. repeat(" ", indentationLevel) .. "\<Esc>")
+    " cursor will be all the way left, so move it to the first char of the line
+    call feedkeys("^")
+endfunction
+
 
 " display stuff
 set number relativenumber
@@ -170,6 +185,12 @@ inoremap <C-o> <C-\><C-o>
 " copy into X's clipboard
 nnoremap <Leader>y "+y
 vnoremap <Leader>y "+y
+" paste clipboard register under current line while keeping the current
+" indentation level. this mapping is intended to make it easy to paste multiline
+" clipboard contents with proper indentation (both of the content and of our
+" current indentation level). for non-multiline contents, you can still just do
+" ctrl-shift-v in insert mode
+nnoremap <Leader>p :call PasteBlockFromClipboardAtCurrentIndentationLevel()<CR>
 " like zt, but leave some more lines above the cursor
 nnoremap ze zt5<C-y>
 vnoremap ze zt5<C-y>
