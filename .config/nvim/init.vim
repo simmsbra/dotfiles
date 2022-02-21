@@ -107,13 +107,9 @@ function! PasteBlockFromClipboardAtCurrentIndentationLevel()
 endfunction
 
 
-" display stuff
+" ---------- Display Stuff ----------
 set number relativenumber
 set list listchars=tab:>-,trail:~,extends:>,precedes:<
-" remove | characters from vertical splits
-" make hyphens after foldtext be full-width bars so they connect to eachother
-set fillchars=vert:\ ,fold:─
-set foldtext=MyFoldText()
 " abort highlighting matching paren-like characters if it's producing a
 " noticeable slowdown. this slowdown can happen when moving the cursor over a
 " large fold surrounded by matching brackets
@@ -127,8 +123,21 @@ endif
 colorscheme portal
 " no special styling of certain HTML tags. for example, <em> text being highlit
 let html_no_rendering=1
+" remove | characters from vertical splits
+" make hyphens after foldtext be full-width bars so they connect to eachother
+set fillchars=vert:\ ,fold:─
+set foldtext=MyFoldText()
 
-" this block is related to indentation (using 4 spaces)
+" ---------- Folding ----------
+" automatically fold files based on indentions
+set foldmethod=indent
+" by default, lines that start with a # are treated differently during indent
+" folding (foldignore="#"). don't do that -- treat no lines specially.
+set foldignore=""
+" excludes 'hor' so that horizontal movement commands don't open folds
+set foldopen=block,mark,percent,quickfix,search,tag,undo
+
+" ---------- Indentation ----------
 filetype indent off
 set expandtab
 set shiftwidth=4
@@ -136,33 +145,17 @@ set softtabstop=4
 set tabstop=4
 " use smaller indentations for HTML, since it usually has lots of nesting
 autocmd FileType html setlocal shiftwidth=2 tabstop=2
-" automatically fold files based on indentions
-set foldmethod=indent
-" by default, lines that start with a # are treated differently during indent
-" folding (foldignore="#"). don't do that -- treat no lines specially.
-set foldignore=""
 
-" misc
+" ---------- Misc ----------
 set wildignorecase
-" excludes 'hor' so that horizontal movement commands don't open folds
-set foldopen=block,mark,percent,quickfix,search,tag,undo
 
-" mappings for frequently used actions
+" ---------- Custom Mappings ----------
 nnoremap <Space> <Nop>
 :let mapleader = " "
 nnoremap <Leader>o o<Esc>k
 nnoremap <Leader>w :write<CR>
 " turn off search highlighting
 nnoremap <Leader>n :nohlsearch<CR>
-" make n only jump to the next result when search results are being highlit.
-" this way i don't get teleported out of what i'm doing if i accidentally hit n.
-" i'd like to make the false value <Nop> for semantic purposes, but that doesn't
-" seem to work for mappings with expressions, so an empty string does the job.
-" also, the zv in the mapping just reinstates the default behavior of opening
-" folds when going to the next search result -- see :h 'foldopen'
-nnoremap <expr> n (v:hlsearch) ? "nzv" : ""
-" make sure that after using zv, the line is vertically centered in the view
-nnoremap zv zvzz
 " refresh the syntax highlighting for when its parsing gets messed up.
 " also fix indent folds when they get broken due to a vim bug (using the
 " workaround shown here: https://github.com/vim/vim/issues/3214#issue-341341390)
@@ -174,14 +167,6 @@ nnoremap <Leader>u :set number! relativenumber!<CR>
 inoremap ,t <Esc>
 vnoremap ,t <Esc>
 nnoremap ,t <Nop>
-" swap C-n and C-p because n is easier to type but 'previous' is the action
-" that i usually want because i want to use an identifier seen above in the file
-inoremap <C-n> <C-p>
-inoremap <C-p> <C-n>
-" i want to be able to do one normal mode command, like p, while in insert mode
-" but without losing my current identation. this can be done with the action of
-" <C-\><C-o> but <C-o> is easier to type
-inoremap <C-o> <C-\><C-o>
 " copy into X's clipboard
 nnoremap <Leader>y "+y
 vnoremap <Leader>y "+y
@@ -221,13 +206,31 @@ nnoremap <Leader>( I(<Esc>A)<Esc>^
 " :help opens in a horizontal orientation, but i like it vertical
 " https://stackoverflow.com/a/630913
 cabbrev h vert help
-
-" mappings for less frequently used actions
+" quick way to toggle color column
 noremap Q :call ToggleColorColumn()<CR>
 " insert current datestamp
 inoremap <F3> <C-R>=strftime("%Y-%m-%d")<CR>
 
-" flow control block snippets
+" ---------- Mappings that Override Default Actions ----------
+" make n only jump to the next result when search results are being highlit.
+" this way i don't get teleported out of what i'm doing if i accidentally hit n.
+" i'd like to make the false value <Nop> for semantic purposes, but that doesn't
+" seem to work for mappings with expressions, so an empty string does the job.
+" also, the zv in the mapping just reinstates the default behavior of opening
+" folds when going to the next search result -- see :h 'foldopen'
+nnoremap <expr> n (v:hlsearch) ? "nzv" : ""
+" make sure that after using zv, the line is vertically centered in the view
+nnoremap zv zvzz
+" swap C-n and C-p because n is easier to type but 'previous' is the action
+" that i usually want because i want to use an identifier seen above in the file
+inoremap <C-n> <C-p>
+inoremap <C-p> <C-n>
+" i want to be able to do one normal mode command, like p, while in insert mode
+" but without losing my current identation. this can be done with the action of
+" <C-\><C-o> but <C-o> is easier to type
+inoremap <C-o> <C-\><C-o>
+
+" ---------- Flow Control Block Snippets ----------
 inoremap {if if () {<CR>}<Esc>kf(a
 inoremap {el if () {<CR>} else {<CR>}<Esc>kkf(a
 inoremap {ie if () {<CR>} else if () {<CR>} else {<CR>}<Esc>kkkf(a
