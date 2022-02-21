@@ -155,9 +155,12 @@ nnoremap <Leader>s :set foldignore=""<CR>:syntax sync fromstart<CR>
 " toggle line numbers so can highlight text with mouse (for copying) without
 " also selecting the line number text
 nnoremap <Leader>u :set number! relativenumber!<CR>
+" easier way to escape insert mode than using pinky
 inoremap ,t <Esc>
 vnoremap ,t <Esc>
 nnoremap ,t <Nop>
+" swap C-n and C-p because n is easier to type but 'previous' is the action
+" that i usually want because i want to use an identifier seen above in the file
 inoremap <C-n> <C-p>
 inoremap <C-p> <C-n>
 " i want to be able to do one normal mode command, like p, while in insert mode
