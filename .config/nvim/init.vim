@@ -91,17 +91,23 @@ function! UnfoldFoldsIfFileIsShortEnoughToFitOnScreen()
 endfunction
 autocmd BufReadPost * :call UnfoldFoldsIfFileIsShortEnoughToFitOnScreen()
 
+" indent the previously changed lines (can be pasted lines) by the number of
+" spaces given
+function! IndentPreviouslyChangedBlock(numberOfSpaces)
+    " use visual block mode to insert spaces. the '[ and '] are marks that vim
+    " automatically sets for the previously changed lines
+    call feedkeys("'[\<C-v>']I" .. repeat(" ", a:numberOfSpaces) .. "\<Esc>")
+endfunction
+
 " paste clipboard content under current line while keeping the indentation level
 " of the current line (indentation within the clipboard content is preserved)
 function! PasteBlockFromClipboardAtCurrentIndentationLevel()
     " indentation level of current line, in spaces
-    let indentationLevel = indent(line('.'))
+    let originalIndentationLevel = indent(line('.'))
     " put clipboard (+ register) contents under current line
     put +
-    " indent the pasted block by using visual block mode to insert spaces the
-    " '[ and '] are automatic marks that vim sets for the previously changed
-    " text (in this case our pasted block)
-    call feedkeys("'[\<C-v>']I" .. repeat(" ", indentationLevel) .. "\<Esc>")
+    " indent the pasted block to what our indentation level was
+    call IndentPreviouslyChangedBlock(originalIndentationLevel)
     " cursor will be all the way left, so move it to the first char of the line
     call feedkeys("^")
 endfunction
@@ -170,6 +176,9 @@ nnoremap ,t <Nop>
 " copy into X's clipboard
 nnoremap <Leader>y "+y
 vnoremap <Leader>y "+y
+" quick way to indent lines (one just 1 line) that were just pasted
+execute 'nnoremap <Leader>i'
+\   .. ' :call IndentPreviouslyChangedBlock(' .. shiftwidth() .. ')<CR>'
 " paste clipboard register under current line while keeping the current
 " indentation level. this mapping is intended to make it easy to paste multiline
 " clipboard contents with proper indentation (both of the content and of our
@@ -198,7 +207,7 @@ nnoremap <Leader>f :source ~/.config/nvim/init.vim<CR>
 " editing the macro text right away without first constructing that command.
 for letter in split('a b c d e f g h i j k l m n o p q r s t u v w x y z')
     execute 'nnoremap'
-    \   .. '<Leader>q' .. letter
+    \   .. ' <Leader>q' .. letter
     \   .. ' :call OpenMacroForEditing("' .. letter .. '")<CR>'
 endfor
 " quick way to surround an entire line with parentheses
