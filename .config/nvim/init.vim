@@ -212,6 +212,8 @@ for letter in split('a b c d e f g h i j k l m n o p q r s t u v w x y z')
 endfor
 " quick way to surround an entire line with parentheses
 nnoremap <Leader>( I(<Esc>A)<Esc>^
+" quick way to surround an entire line with double quotes
+nnoremap <Leader>" I"<Esc>A"<Esc>^
 " :help opens in a horizontal orientation, but i like it vertical
 " https://stackoverflow.com/a/630913
 cabbrev h vert help
