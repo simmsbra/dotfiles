@@ -198,6 +198,12 @@ nnoremap <Leader>8 80<Bar>
 nnoremap <Leader>f :source ~/.config/nvim/init.vim<CR>
 " easier way (in terms of typing) to call a macro
 nnoremap <Leader>m @
+" quick way to call a macro on the set of currently visually selected lines
+for letter in split('a b c d e f g h i j k l m n o p q r s t u v w x y z')
+    execute "vnoremap"
+    \   .. " <Leader>v" .. letter
+    \   .. " :'<'>normal @" .. letter .. "<CR>"
+endfor
 " editing a macro by pasting it into your buffer and then yanking it back into
 " the register does not work well, especially if there are things like newlines
 " in your macro. so the better way is to edit the macro register directly by
