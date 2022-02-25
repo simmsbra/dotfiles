@@ -91,23 +91,39 @@ function! UnfoldFoldsIfFileIsShortEnoughToFitOnScreen()
 endfunction
 autocmd BufReadPost * :call UnfoldFoldsIfFileIsShortEnoughToFitOnScreen()
 
-" indent the previously changed lines (can be pasted lines) by the number of
-" spaces given
-function! IndentPreviouslyChangedBlock(numberOfSpaces)
-    " use visual block mode to insert spaces. the '[ and '] are marks that vim
-    " automatically sets for the previously changed lines
-    call feedkeys("'[\<C-v>']I" .. repeat(" ", a:numberOfSpaces) .. "\<Esc>")
+" shift (indent) the previously changed lines (can be pasted lines) by the
+" number of shifts given. for example, if you pass 2 and your shiftwidth is
+" set to 4, then the block would be indented 8 characters. a negative number
+" shifts left
+function! IndentPreviouslyChangedBlock(numberOfShifts)
+    let shouldShiftLeft = a:numberOfShifts < 0
+    for shiftNumber in range(abs(a:numberOfShifts))
+        " use the > or < action with a range to shift the block. the '[ and ']
+        " are marks that vim automatically sets for the previously changed lines
+        exec "'[,']" .. (shouldShiftLeft ? "<" : ">")
+    endfor
 endfunction
 
-" paste clipboard content under current line while keeping the indentation level
+" paste clipboard content under the current line at the same indentation level
 " of the current line (indentation within the clipboard content is preserved)
 function! PasteBlockFromClipboardAtCurrentIndentationLevel()
-    " indentation level of current line, in spaces
-    let originalIndentationLevel = indent(line('.'))
+    " indent of current line, in spaces
+    let originalIndentAsSpaces = indent(line('.'))
+
+    if originalIndentAsSpaces % &shiftwidth != 0
+        echohl ErrorMsg
+        echo "The current line's indent is not aligned to a tabstop"
+            \ .. " (determined using the value of 'shiftwidth')"
+        echohl None
+        return
+    endif
+
+    let originalIndentAsNumberOfShifts = originalIndentAsSpaces / &shiftwidth
+
     " put clipboard (+ register) contents under current line
     put +
     " indent the pasted block to what our indentation level was
-    call IndentPreviouslyChangedBlock(originalIndentationLevel)
+    call IndentPreviouslyChangedBlock(originalIndentAsNumberOfShifts)
     " cursor will be all the way left, so move it to the first char of the line
     call feedkeys("^")
 endfunction
@@ -177,8 +193,8 @@ nnoremap ,t <Nop>
 nnoremap <Leader>y "+y
 vnoremap <Leader>y "+y
 " quick way to indent lines (one just 1 line) that were just pasted
-execute 'nnoremap <Leader>i'
-\   .. ' :call IndentPreviouslyChangedBlock(' .. shiftwidth() .. ')<CR>'
+nnoremap <Leader>i :call IndentPreviouslyChangedBlock(1)<CR>
+nnoremap <Leader>d :call IndentPreviouslyChangedBlock(-1)<CR>
 " paste clipboard register under current line while keeping the current
 " indentation level. this mapping is intended to make it easy to paste multiline
 " clipboard contents with proper indentation (both of the content and of our
