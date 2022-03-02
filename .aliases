@@ -51,6 +51,7 @@ alias dps='
 '
 
 alias v='nvim'
+alias vd='nvim -d'
 alias ll='ls -l --all --classify --color=always'
 alias lh='ls -l --all --classify --color=always --human-readable'
 alias lo='ls -l --all --classify --color=always --group-directories-first'
