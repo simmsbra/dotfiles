@@ -192,9 +192,12 @@ nnoremap ,t <Nop>
 " copy into X's clipboard
 nnoremap <Leader>y "+y
 vnoremap <Leader>y "+y
-" quick way to indent lines (one just 1 line) that were just pasted
-nnoremap <Leader>i :call IndentPreviouslyChangedBlock(1)<CR>
-nnoremap <Leader>d :call IndentPreviouslyChangedBlock(-1)<CR>
+" quick way to indent lines (one just 1 line) that were just pasted. i
+" originally had i as shift right and d as shift left, but that confused me
+" once because in dvorak, i is on the left, like <, but it goes in the opposite
+" direction (and vice versa for d)
+nnoremap <Leader>i :call IndentPreviouslyChangedBlock(-1)<CR>
+nnoremap <Leader>d :call IndentPreviouslyChangedBlock(1)<CR>
 " paste clipboard register under current line while keeping the current
 " indentation level. this mapping is intended to make it easy to paste multiline
 " clipboard contents with proper indentation (both of the content and of our
