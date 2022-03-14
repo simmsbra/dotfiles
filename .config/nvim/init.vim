@@ -100,7 +100,10 @@ function! IndentPreviouslyChangedBlock(numberOfShifts)
     for shiftNumber in range(abs(a:numberOfShifts))
         " use the > or < action with a range to shift the block. the '[ and ']
         " are marks that vim automatically sets for the previously changed lines
-        exec "'[,']" .. (shouldShiftLeft ? "<" : ">")
+        call feedkeys("'[V']" .. (shouldShiftLeft ? "<" : ">"))
+        " the more simple way to write this is using only an ex command:
+        " exec "'[,']" .. (shouldShiftLeft ? "<" : ">")
+        " but when done that way, you can't use . to repeat the action
     endfor
 endfunction
 
