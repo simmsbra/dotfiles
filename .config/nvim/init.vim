@@ -260,8 +260,6 @@ inoremap <F3> <C-R>=strftime("%Y-%m-%d")<CR>
 " also, the zv in the mapping just reinstates the default behavior of opening
 " folds when going to the next search result -- see :h 'foldopen'
 nnoremap <expr> n (v:hlsearch) ? "nzv" : ""
-" make sure that after using zv, the line is vertically centered in the view
-nnoremap zv zvzz
 " swap C-n and C-p because n is easier to type but 'previous' is the action
 " that i usually want because i want to use an identifier seen above in the file
 inoremap <C-n> <C-p>
