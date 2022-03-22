@@ -99,8 +99,10 @@ function! IndentPreviouslyChangedBlock(numberOfShifts)
     let shouldShiftLeft = a:numberOfShifts < 0
     for shiftNumber in range(abs(a:numberOfShifts))
         " use the > or < action with a range to shift the block. the '[ and ']
-        " are marks that vim automatically sets for the previously changed lines
-        call feedkeys("'[V']" .. (shouldShiftLeft ? "<" : ">"))
+        " are marks that vim automatically sets for the previously changed
+        " lines. use zv to make sure that the first line of the changed block is
+        " not folded, because otherwise the entire fold will be shifted
+        call feedkeys("'[zvV']" .. (shouldShiftLeft ? "<" : ">"))
         " the more simple way to write this is using only an ex command:
         " exec "'[,']" .. (shouldShiftLeft ? "<" : ">")
         " but when done that way, you can't use . to repeat the action
