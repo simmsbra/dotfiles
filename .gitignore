@@ -3,6 +3,7 @@
 !/.gitignore
 
 !/.aliases
+!/.gdbinit
 !/.gitconfig-global-gitignore
 !/.gitconfig-public
 !/.github/
