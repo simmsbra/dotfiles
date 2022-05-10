@@ -43,7 +43,7 @@ alias gss='
     echo "______________________________________________________BRANCHES"; gb;
 '
 
-alias mygc='gcc -g -Wall -std=c11'
+alias mygc='gcc -g -Wall -Wextra -std=c17'
 # the default docker ps format can be too long for my screen
 alias dps='
     sudo docker ps --format \
