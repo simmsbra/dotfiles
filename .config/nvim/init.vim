@@ -81,10 +81,9 @@ function! DetectMissingFiletype()
 endfunction
 autocmd VimEnter * :call DetectMissingFiletype()
 
-" if the file is short enough, don't have anything folded. vim can't know the
-" character height of your terminal, so i'm just using a heuristic-y value
+" if the file is short enough to fit entirely on screen, open all folds
 function! UnfoldFoldsIfFileIsShortEnoughToFitOnScreen()
-    let maxAmountOfLinesDisplayable = 41
+    let maxAmountOfLinesDisplayable = winheight(0)
     if line("$") <= maxAmountOfLinesDisplayable
         normal zR
     endif
