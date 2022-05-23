@@ -212,6 +212,8 @@ vnoremap ze zt5<C-y>
 " substitution leaves any pattern results in the document highlit, so turn off
 " highlighting afterward.
 vnoremap <Leader>l :s/\s\+$//e<CR>:nohlsearch<CR>
+" same thing but for only the current line
+nnoremap <Leader>l :s/\s\+$//e<CR>:nohlsearch<CR>
 " move cursor to column 80. i frequently have to do this to split long lines
 nnoremap <Leader>8 80<Bar>
 " easier way to reload this config file (especially when making edits to it)
