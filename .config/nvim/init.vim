@@ -149,9 +149,8 @@ endif
 colorscheme portal
 " no special styling of certain HTML tags. for example, <em> text being highlit
 let html_no_rendering=1
-" remove | characters from vertical splits
 " make hyphens after foldtext be full-width bars so they connect to eachother
-set fillchars=vert:\ ,fold:─
+set fillchars=fold:─
 set foldtext=MyFoldText()
 
 " ---------- Folding ----------
