@@ -193,6 +193,10 @@ nnoremap ,t <Nop>
 " copy into X's clipboard
 nnoremap <Leader>y "+y
 vnoremap <Leader>y "+y
+" overwrite visual selection with what's in the unnamed register, but don't
+" replace what's in the unnamed register. this way you can easily paste the same
+" thing multiple times
+vnoremap <Leader>p "_dP
 " quick way to indent lines (one just 1 line) that were just pasted. i
 " originally had i as shift right and d as shift left, but that confused me
 " once because in dvorak, i is on the left, like <, but it goes in the opposite
