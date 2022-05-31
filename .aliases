@@ -63,6 +63,15 @@ alias seu='sudo du -ahd1 | sort -h'
 alias mkd='mkdir'
 alias sau='sudo apt upgrade'
 alias ea='clear'
+btouch() { # "bash touch" -- create an executable bash script template file
+    if [ -f "$1" ]; then
+        echo "Error: $1 already exists."
+        return
+    fi
+
+    echo '#!/bin/bash\n' > "$1"
+    chmod u+x "$1"
+}
 
 alias myjpg='jpegoptim --force --all-progressive --strip-all --totals'
 alias mypng='optipng -strip all -i 0 -o7'
