@@ -75,6 +75,8 @@ function! DetectMissingFiletype()
         call cursor(1, 1)
         if search('<VirtualHost\|<Directory', 'cn', 1024) != 0
             set filetype=apache
+        elseif search('listen 80;', 'cn', 1024) != 0
+            set filetype=nginx
         endif
         call setpos('.', originalCursorPosition)
     endif
