@@ -23,7 +23,7 @@ alias griv='git rebase --rebase-merges --interactive live/master'
 alias gra='git rebase --abort'
 alias grc='git rebase --continue'
 grf() { # git "rebase fixup" -- a quick way to fixup any previous commit
-    git commit --fixup "$1" && git rebase --interactive --autosquash "$1"^
+    git commit --fixup "$1" && git rebase --rebase-merges --interactive --autosquash "$1"^
 }
 alias grs='git reset HEAD^'
 alias grsh='git reset --hard'
