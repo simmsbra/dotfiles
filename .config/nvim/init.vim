@@ -205,6 +205,10 @@ vnoremap <Leader>p "_dP
 " direction (and vice versa for d)
 nnoremap <Leader>i :call IndentPreviouslyChangedBlock(-1)<CR>
 nnoremap <Leader>d :call IndentPreviouslyChangedBlock(1)<CR>
+" use the same key sequences from above, but for indenting visually-selected
+" lines in a way that has easier keystrokes than the defaults
+vnoremap <Leader>i <
+vnoremap <Leader>d >
 " paste clipboard register under current line while keeping the current
 " indentation level. this mapping is intended to make it easy to paste multiline
 " clipboard contents with proper indentation (both of the content and of our
