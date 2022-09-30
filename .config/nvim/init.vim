@@ -260,6 +260,82 @@ noremap Q :call ToggleColorColumn()<CR>
 " insert current datestamp
 inoremap <F3> <C-R>=strftime("%Y-%m-%d")<CR>
 
+" ---------- Custom Mappings, Task Tracking Markers ----------
+" Task Examples:
+"     this task has no markers
+"     * this task is marked as being preferred 1x
+"     ** this task is marked as being preferred 2x (and so on)
+"     - this task is marked as being completed
+" Key Choice:
+"     The prefix key "t" stands for "task".
+"     The 4 action keys are left-hand resting-position home row keys in Dvorak
+"         ("aoeu"), whose positions from left to right roughly correspond to
+"         how the action will change the task's position on the typical task
+"         completion timeline:
+"
+"     Unmarked  ------------->  Preferred N Times  ------------>  Completed
+"
+"        <<<                 <                  >                   >>>
+"       ┌───┐              ┌───┐              ┌───┐                ┌───┐
+"       │ a │              │ o │              │ e │                │ u │
+"       └───┘              └───┘              └───┘                └───┘
+"     Unmark()            Defer()            Prefer()            Complete()
+"
+function! MoveCursorToFirstNonBlankCharAndGetNthChar(index)
+    normal ^
+    let currentColumn = getpos('.')[2] - 1
+    return getline('.')[currentColumn + a:index]
+endfunction
+function! TaskUnmark()
+    let firstCharOfCurrentLine = MoveCursorToFirstNonBlankCharAndGetNthChar(0)
+    if (firstCharOfCurrentLine == "*") || (firstCharOfCurrentLine == "-")
+    " preferred or completed task
+        normal dw
+    else " unmarked task
+    endif
+endfunction
+function! TaskDefer()
+    let firstCharOfCurrentLine = MoveCursorToFirstNonBlankCharAndGetNthChar(0)
+    let secondCharOfCurrentLine = MoveCursorToFirstNonBlankCharAndGetNthChar(1)
+    if firstCharOfCurrentLine == "*" " preferred task
+        if secondCharOfCurrentLine ==? "*" " >1 preference marking
+            normal x
+        else " 1 preference marking
+            call TaskUnmark()
+        endif
+    else " completed or unmarked task
+    endif
+endfunction
+function! TaskPrefer()
+    let firstCharOfCurrentLine = MoveCursorToFirstNonBlankCharAndGetNthChar(0)
+    if firstCharOfCurrentLine == "*" " preferred task
+        normal I*
+    else
+        if firstCharOfCurrentLine == "-" " completed task
+            call TaskUnmark()
+        else " unmarked task
+        endif
+        normal I* 
+    endif
+    normal ^
+endfunction
+function! TaskComplete()
+    let firstCharOfCurrentLine = MoveCursorToFirstNonBlankCharAndGetNthChar(0)
+    if firstCharOfCurrentLine == "-" " completed task
+    else
+        if firstCharOfCurrentLine == "*" " preferred task
+            call TaskUnmark()
+        else " unmarked task
+        endif
+        normal I- 
+    endif
+    normal ^
+endfunction
+nnoremap <Leader>ta :call TaskUnmark()<CR>
+nnoremap <Leader>to :call TaskDefer()<CR>
+nnoremap <Leader>te :call TaskPrefer()<CR>
+nnoremap <Leader>tu :call TaskComplete()<CR>
+
 " ---------- Mappings that Override Default Actions ----------
 " make n only jump to the next result when search results are being highlit.
 " this way i don't get teleported out of what i'm doing if i accidentally hit n.
