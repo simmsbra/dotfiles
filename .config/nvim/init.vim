@@ -267,7 +267,7 @@ inoremap <F3> <C-R>=strftime("%Y-%m-%d")<CR>
 "     ** this task is marked as being preferred 2x (and so on)
 "     - this task is marked as being completed
 " Key Choice:
-"     The prefix key "t" stands for "task".
+"     The prefix key "h" is simply an easy-to-press home row key in Dvorak.
 "     The 4 action keys are left-hand resting-position home row keys in Dvorak
 "         ("aoeu"), whose positions from left to right roughly correspond to
 "         how the action will change the task's position on the typical task
@@ -331,10 +331,10 @@ function! TaskComplete()
     endif
     normal ^
 endfunction
-nnoremap <Leader>ta :call TaskUnmark()<CR>
-nnoremap <Leader>to :call TaskDefer()<CR>
-nnoremap <Leader>te :call TaskPrefer()<CR>
-nnoremap <Leader>tu :call TaskComplete()<CR>
+nnoremap <Leader>ha :call TaskUnmark()<CR>
+nnoremap <Leader>ho :call TaskDefer()<CR>
+nnoremap <Leader>he :call TaskPrefer()<CR>
+nnoremap <Leader>hu :call TaskComplete()<CR>
 
 " ---------- Mappings that Override Default Actions ----------
 " make n only jump to the next result when search results are being highlit.
