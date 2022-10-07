@@ -180,7 +180,11 @@ set wildignorecase
 nnoremap <Space> <Nop>
 :let mapleader = " "
 nnoremap <Leader>o o<Esc>k
-nnoremap <Leader>w :write<CR>
+" write but don't change the marks in the file, because some are used for the
+" indentation mappings. this way, writing between pasting something and using an
+" indentation mapping to indent the pasted text does not end up indenting the
+" entire buffer.
+nnoremap <Leader>w :lockmarks write<CR>
 " turn off search highlighting
 nnoremap <Leader>n :nohlsearch<CR>
 " refresh the syntax highlighting for when its parsing gets messed up
