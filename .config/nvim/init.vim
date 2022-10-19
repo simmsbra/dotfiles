@@ -237,7 +237,7 @@ nnoremap <Leader>m @
 " quick way to call a macro on the set of currently visually selected lines
 for letter in split('a b c d e f g h i j k l m n o p q r s t u v w x y z')
     execute "vnoremap"
-    \   .. " <Leader>v" .. letter
+    \   .. " <Leader>m" .. letter
     \   .. " :'<'>normal @" .. letter .. "<CR>"
 endfor
 " editing a macro by pasting it into your buffer and then yanking it back into
