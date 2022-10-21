@@ -8,7 +8,7 @@
 !/.gitconfig-public
 !/.github/
 !/.tmux.conf
-!/.zprofile
+!/.zshenv
 !/.zshrc
 
 # include neovim config
