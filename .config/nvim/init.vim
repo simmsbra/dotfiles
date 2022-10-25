@@ -184,7 +184,7 @@ nnoremap <Leader>o o<Esc>k
 " indentation mappings. this way, writing between pasting something and using an
 " indentation mapping to indent the pasted text does not end up indenting the
 " entire buffer.
-nnoremap <Leader>w :lockmarks write<CR>
+nnoremap <Leader>e :lockmarks write<CR>
 " turn off search highlighting
 nnoremap <Leader>n :nohlsearch<CR>
 " refresh the syntax highlighting for when its parsing gets messed up
@@ -193,9 +193,9 @@ nnoremap <Leader>s :syntax sync fromstart<CR>
 " also selecting the line number text
 nnoremap <Leader>u :set number! relativenumber!<CR>
 " easier way to escape insert mode than using pinky
-inoremap ,t <Esc>
-vnoremap ,t <Esc>
-nnoremap ,t <Nop>
+inoremap ,n <Esc>
+vnoremap ,n <Esc>
+nnoremap ,n <Nop>
 " copy into X's clipboard
 nnoremap <Leader>y "+y
 vnoremap <Leader>y "+y
