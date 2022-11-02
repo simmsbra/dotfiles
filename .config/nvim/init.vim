@@ -87,7 +87,7 @@ autocmd VimEnter * :call DetectMissingFiletype()
 function! UnfoldFoldsIfFileIsShortEnoughToFitOnScreen()
     let maxAmountOfLinesDisplayable = winheight(0)
     if line("$") <= maxAmountOfLinesDisplayable
-        normal zR
+        normal! zR
     endif
 endfunction
 autocmd BufReadPost * :call UnfoldFoldsIfFileIsShortEnoughToFitOnScreen()
@@ -242,7 +242,7 @@ nnoremap <Leader>m @
 for letter in split('a b c d e f g h i j k l m n o p q r s t u v w x y z')
     execute "vnoremap"
     \   .. " <Leader>m" .. letter
-    \   .. " :'<'>normal @" .. letter .. "<CR>"
+    \   .. " :'<'>normal! @" .. letter .. "<CR>"
 endfor
 " editing a macro by pasting it into your buffer and then yanking it back into
 " the register does not work well, especially if there are things like newlines
@@ -290,7 +290,7 @@ inoremap <F3> <C-R>=strftime("%Y-%m-%d")<CR>
 "     Unmark()            Defer()            Prefer()            Complete()
 "
 function! MoveCursorToFirstNonBlankCharAndGetNthChar(index)
-    normal ^
+    normal! ^
     let currentColumn = getpos('.')[2] - 1
     return getline('.')[currentColumn + a:index]
 endfunction
@@ -298,7 +298,7 @@ function! TaskUnmark()
     let firstCharOfCurrentLine = MoveCursorToFirstNonBlankCharAndGetNthChar(0)
     if (firstCharOfCurrentLine == "*") || (firstCharOfCurrentLine == "-")
     " preferred or completed task
-        normal dw
+        normal! dw
     else " unmarked task
     endif
 endfunction
@@ -307,7 +307,7 @@ function! TaskDefer()
     let secondCharOfCurrentLine = MoveCursorToFirstNonBlankCharAndGetNthChar(1)
     if firstCharOfCurrentLine == "*" " preferred task
         if secondCharOfCurrentLine ==? "*" " >1 preference marking
-            normal x
+            normal! x
         else " 1 preference marking
             call TaskUnmark()
         endif
@@ -317,15 +317,15 @@ endfunction
 function! TaskPrefer()
     let firstCharOfCurrentLine = MoveCursorToFirstNonBlankCharAndGetNthChar(0)
     if firstCharOfCurrentLine == "*" " preferred task
-        normal I*
+        normal! I*
     else
         if firstCharOfCurrentLine == "-" " completed task
             call TaskUnmark()
         else " unmarked task
         endif
-        normal I* 
+        normal! I* 
     endif
-    normal ^
+    normal! ^
 endfunction
 function! TaskComplete()
     let firstCharOfCurrentLine = MoveCursorToFirstNonBlankCharAndGetNthChar(0)
@@ -335,9 +335,9 @@ function! TaskComplete()
             call TaskUnmark()
         else " unmarked task
         endif
-        normal I- 
+        normal! I- 
     endif
-    normal ^
+    normal! ^
 endfunction
 nnoremap <Leader>ha :call TaskUnmark()<CR>
 nnoremap <Leader>ho :call TaskDefer()<CR>
