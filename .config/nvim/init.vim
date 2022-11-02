@@ -356,6 +356,9 @@ nnoremap <expr> n (v:hlsearch) ? "nzv" : ""
 " that i usually want because i want to use an identifier seen above in the file
 inoremap <C-n> <C-p>
 inoremap <C-p> <C-n>
+" ^ is harder to type than 0, but i use that action way more often, so swap them
+nnoremap ^ 0
+nnoremap 0 ^
 " i want to be able to do one normal mode command, like p, while in insert mode
 " but without losing my current identation. this can be done with the action of
 " <C-\><C-o> but <C-o> is easier to type
