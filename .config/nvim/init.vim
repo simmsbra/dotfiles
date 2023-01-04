@@ -196,6 +196,8 @@ nnoremap <Leader>u :set number! relativenumber!<CR>
 inoremap ,n <Esc>
 vnoremap ,n <Esc>
 nnoremap ,n <Nop>
+" easier way to toggle folds than using pinky
+nnoremap <Leader>ta za
 " copy into X's clipboard
 nnoremap <Leader>y "+y
 vnoremap <Leader>y "+y
