@@ -63,7 +63,7 @@ endfunction
 " i'm not checking if vim's &filetype is 'text' because i don't want color
 " column to be off if vim doesn't know the filetype and defaults it to 'text'
 " -- for example, in my .aliases file
-autocmd VimEnter,BufReadPre * :call InitializeColorColumnBasedOnFileType()
+autocmd BufReadPre * :call InitializeColorColumnBasedOnFileType()
 
 " when using sudoedit, the original filename is not present, so filetype
 " detection (for syntax highlighting) based on filename won't work correctly. so
