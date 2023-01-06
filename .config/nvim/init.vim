@@ -135,6 +135,13 @@ function! PasteBlockFromClipboardAtCurrentIndentationLevel()
 endfunction
 
 
+" i want my manually opened and closed folds for *.txt files to persist after
+" exiting. this is taken from :h loadview. the 'silent!' ignores errors, like
+" ones about folds not being present in the file anymore
+autocmd BufWinLeave *.txt mkview
+autocmd BufWinEnter *.txt silent! loadview
+
+
 " ---------- Display Stuff ----------
 set number relativenumber
 set list listchars=tab:>-,trail:~,extends:>,precedes:<
