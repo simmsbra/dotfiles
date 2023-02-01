@@ -24,3 +24,5 @@ highlight Visual cterm=reverse ctermbg=None ctermfg=None
 
 " vim defaults this to bold, which was messing with my colors
 highlight Identifier cterm=None
+
+highlight MatchParen cterm=None ctermbg=Red ctermfg=White
