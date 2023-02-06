@@ -4,6 +4,7 @@
 
 !/.aliases
 !/.gdbinit
+!/.gitattributes
 !/.gitconfig-global-gitignore
 !/.gitconfig-public
 !/.github/

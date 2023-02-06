@@ -9,6 +9,8 @@
 [core]
 	editor = nvim
 	excludesfile = ~/.gitconfig-global-gitignore
+	attributesfile = ~/.gitattributes
 [color "diff"]
 	meta = yellow
-	frag = blue
+	frag = magenta
+	func = blue
