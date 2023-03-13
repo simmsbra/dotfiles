@@ -134,6 +134,17 @@ function! PasteBlockFromClipboardAtCurrentIndentationLevel()
     call feedkeys("^")
 endfunction
 
+" delete trailing whitespace characters (from either the current line or the
+" currently visually-selected lines)
+function! DeleteTrailingWhitespace()
+    let originalCursorPosition = getcurpos()
+    substitute/\s\+$//e
+    " substitution leaves any pattern results in the document highlit, so turn
+    " off highlighting afterward
+    nohlsearch
+    call setpos('.', originalCursorPosition)
+endfunction
+
 
 " i want my manually opened and closed folds for *.txt files to persist after
 " exiting. this is taken from :h loadview. the 'silent!' ignores errors, like
@@ -235,12 +246,10 @@ nnoremap <Leader>p :call PasteBlockFromClipboardAtCurrentIndentationLevel()<CR>
 " like zt, but leave some more lines above the cursor
 nnoremap ze zt5<C-y>
 vnoremap ze zt5<C-y>
-" remove trailing whitespace from the lines in the current visual selection.
-" substitution leaves any pattern results in the document highlit, so turn off
-" highlighting afterward.
-vnoremap <Leader>l :s/\s\+$//e<CR>:nohlsearch<CR>
-" same thing but for only the current line
-nnoremap <Leader>l :s/\s\+$//e<CR>:nohlsearch<CR>
+" remove trailing whitespace from the lines in the current visual selection
+vnoremap <Leader>l :call DeleteTrailingWhitespace()<CR>
+" remove trailing whitespace from the current line
+nnoremap <Leader>l :call DeleteTrailingWhitespace()<CR>
 " move cursor to column 80. i frequently have to do this to split long lines
 nnoremap <Leader>8 80<Bar>
 " easier way to reload this config file (especially when making edits to it)
