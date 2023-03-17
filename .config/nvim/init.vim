@@ -278,6 +278,11 @@ endfor
 nnoremap <Leader>( I(<Esc>A)<Esc>^
 " quick way to surround an entire line with double quotes
 nnoremap <Leader>" I"<Esc>A"<Esc>^
+" when navigating to a quick fix result, always open all folds and center it.
+" this is useful when used in macros, since it keeps things looking consistent.
+" (have to write bar this way so it's not interpreted right now. ":h map-bar")
+cnoremap cn cnext <Bar> normal zR zz
+cnoremap cp cprevious <Bar> normal zR zz
 " :help opens in a horizontal orientation, but i like it vertical
 " https://stackoverflow.com/a/630913
 cabbrev h vert help
