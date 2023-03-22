@@ -19,18 +19,46 @@ function! OpenMacroForEditing(registerLetter)
     \ )
 endfunction
 
+" Return a foldtext that has a smaller minimum width, that looks cooler, and
+" that uses spacing to align the line text with the unfolded line text if
+" possible -- this results in the fact that when you unfold the fold, the line
+" text is in the same place.
+"
+" Examples:
+"      Default Foldtext: │+--298 lines: text of line with foldlevel 1
+"           My Foldtext: │──298──── text of line with foldlevel 1
+"              Unfolded: │    text of line with foldlevel 1
+"                        │
+"      Default Foldtext: │+------  3 lines: text of line with foldlevel 5
+" My (Aligned) Foldtext: │──────────────3──── text of line with foldlevel 5
+"              Unfolded: │                    text of line with foldlevel 5
 function! MyFoldText()
-    " First get the default text from the built-in vim function that is normally
-    " used to set the foldtext option
-    let result = foldtext()
+    let result = foldtext() " Start with the default foldtext.
 
-    " Change the beginning of the text to look like ─┼─── (with a fixed width)
+    " Change the beginning of the text to look like ── (with a fixed width)
     " instead of +--... (with a variable width due to the number of hyphens
-    " representing the fold level). Also, add a space between the ─┼─── and
-    " the number of folded lines that comes afterward.
-    let result = substitute(result, '^+-\+', '─┼─── ', '')
+    " representing the fold level).
+    let result = substitute(result, '^+-\+', '──', '')
+    " Replace any padding spaces in the number of folded lines with '─'s.
+    " The pattern matches any space character whose prefix is [the beginning
+    " of the line then [1 or more '─'s] then [0 or more spaces]] and whose
+    " suffix is [[0 or more spaces] then a digit].
+    " The '()@<=' is a positive lookbehind. The '()@=' is a positive lookahead.
+    let result = substitute(result, '\(^─\+ *\)\@<= \( *[0-9]\)\@=', '─', 'g')
+    let result = substitute(result, ' line[s]*: ', '──── ', '')
 
-    " A space between this foldtext and the following fold fillchars looks good
+    " If the folded line is indented more than the width of the foldtext prefix,
+    " then add spacing characters to align them.
+    let numberOfSpacesFoldIsIndented = v:foldlevel * &shiftwidth
+    " 1234567890
+    " ──999──── text of line
+    let widthOfPrefix = 10
+    if numberOfSpacesFoldIsIndented > widthOfPrefix
+        let spacing = repeat('─', numberOfSpacesFoldIsIndented - widthOfPrefix)
+        let result = spacing . result
+    endif
+
+    " A space between this foldtext and the following fold fillchars looks good.
     return result . ' '
 endfunction
 
