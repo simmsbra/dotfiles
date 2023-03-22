@@ -242,8 +242,16 @@ nnoremap <Leader>u :set number! relativenumber!<CR>
 inoremap ,n <Esc>
 vnoremap ,n <Esc>
 nnoremap ,n <Nop>
-" easier way to toggle folds than using pinky
+" remap frequently-used commands that use 'z' so that they don't use right pinky
 nnoremap <Leader>ta za
+nnoremap <Leader>tc zc
+nnoremap <Leader>tM zM
+nnoremap <Leader>tR zR
+nnoremap <Leader>tt zz
+nnoremap <Leader>t. zt
+" like zt, but leave some more lines above the cursor
+nnoremap <Leader>te zt5<C-y>
+vnoremap <Leader>te zt5<C-y>
 " copy into X's clipboard
 nnoremap <Leader>y "+y
 vnoremap <Leader>y "+y
@@ -271,9 +279,6 @@ nnoremap <Leader>ad V>
 " current indentation level). for non-multiline contents, you can still just do
 " ctrl-shift-v in insert mode
 nnoremap <Leader>p :call PasteBlockFromClipboardAtCurrentIndentationLevel()<CR>
-" like zt, but leave some more lines above the cursor
-nnoremap ze zt5<C-y>
-vnoremap ze zt5<C-y>
 " remove trailing whitespace from the lines in the current visual selection
 vnoremap <Leader>l :call DeleteTrailingWhitespace()<CR>
 " remove trailing whitespace from the current line
