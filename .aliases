@@ -40,7 +40,7 @@ alias gta='git tag --annotate'
 alias gtd='git tag --delete'
 
 # git "super status" (relies on aliases defined above)
-alias gss='
+alias ge='
     echo "__________________________________________________________DIFF"; gd;
     echo "________________________________________________________STATUS"; gs;
     echo "_______________________________________________________STASHES"; gstl;
