@@ -249,11 +249,15 @@ nnoremap ,n <Nop>
 " remap frequently-used commands that use 'z' so that they don't use right pinky
 nnoremap <Leader>ta za
 nnoremap <Leader>tA zA
+nnoremap <Leader>tv zv
+nnoremap <Leader>tx zx
 nnoremap <Leader>tc zc
 nnoremap <Leader>tC zC
 nnoremap <Leader>to zo
 nnoremap <Leader>tO zO
+nnoremap <Leader>tm zm
 nnoremap <Leader>tM zM
+nnoremap <Leader>tr zr
 nnoremap <Leader>tR zR
 nnoremap <Leader>tt zz
 nnoremap <Leader>t. zt
