@@ -251,7 +251,7 @@ nnoremap <Leader>ta za
 nnoremap <Leader>tA zA
 nnoremap <Leader>tv zv
 nnoremap <Leader>tx zx
-nnoremap <Leader>tc zc
+nnoremap <Leader>t. zc
 nnoremap <Leader>tC zC
 nnoremap <Leader>to zo
 nnoremap <Leader>tO zO
@@ -259,11 +259,11 @@ nnoremap <Leader>tm zm
 nnoremap <Leader>tM zM
 nnoremap <Leader>tr zr
 nnoremap <Leader>tR zR
-nnoremap <Leader>tt zz
-nnoremap <Leader>t. zt
+nnoremap <Leader>te zz
+nnoremap <Leader>tc zt
 " like zt, but leave some more lines above the cursor
-nnoremap <Leader>te zt5<C-y>
-vnoremap <Leader>te zt5<C-y>
+nnoremap <Leader>tt zt5<C-y>
+vnoremap <Leader>tt zt5<C-y>
 " copy into X's clipboard
 nnoremap <Leader>y "+y
 vnoremap <Leader>y "+y
