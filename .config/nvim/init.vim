@@ -236,7 +236,7 @@ nnoremap <Leader>E :wq<CR>
 " quit window
 nnoremap <Leader>u :quit<CR>
 " turn off search highlighting
-nnoremap <Leader>n :nohlsearch<CR>
+nnoremap <Leader>t :nohlsearch<CR>
 " refresh the syntax highlighting for when its parsing gets messed up
 nnoremap <Leader>s :syntax sync fromstart<CR>
 " toggle line numbers so can highlight text with mouse (for copying) without
@@ -247,23 +247,23 @@ inoremap ,n <Esc>
 vnoremap ,n <Esc>
 nnoremap ,n <Nop>
 " remap frequently-used commands that use 'z' so that they don't use right pinky
-nnoremap <Leader>ta za
-nnoremap <Leader>tA zA
-nnoremap <Leader>tv zv
-nnoremap <Leader>tx zx
-nnoremap <Leader>t. zc
-nnoremap <Leader>tC zC
-nnoremap <Leader>to zo
-nnoremap <Leader>tO zO
-nnoremap <Leader>tm zm
-nnoremap <Leader>tM zM
-nnoremap <Leader>tr zr
-nnoremap <Leader>tR zR
-nnoremap <Leader>te zz
-nnoremap <Leader>tc zt
+nnoremap <Leader>na za
+nnoremap <Leader>nA zA
+nnoremap <Leader>nv zv
+nnoremap <Leader>nx zx
+nnoremap <Leader>n. zc
+nnoremap <Leader>nC zC
+nnoremap <Leader>no zo
+nnoremap <Leader>nO zO
+nnoremap <Leader>nm zm
+nnoremap <Leader>nM zM
+nnoremap <Leader>nr zr
+nnoremap <Leader>nR zR
+nnoremap <Leader>ne zz
+nnoremap <Leader>nc zt
 " like zt, but leave some more lines above the cursor
-nnoremap <Leader>tt zt5<C-y>
-vnoremap <Leader>tt zt5<C-y>
+nnoremap <Leader>nt zt5<C-y>
+vnoremap <Leader>nt zt5<C-y>
 " copy into X's clipboard
 nnoremap <Leader>y "+y
 vnoremap <Leader>y "+y
