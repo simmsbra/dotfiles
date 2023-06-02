@@ -253,6 +253,7 @@ nnoremap <Leader>nv zv
 nnoremap <Leader>nx zx
 nnoremap <Leader>n. zc
 nnoremap <Leader>nC zC
+vnoremap <Leader>nC zC
 nnoremap <Leader>no zo
 nnoremap <Leader>nO zO
 nnoremap <Leader>nm zm
