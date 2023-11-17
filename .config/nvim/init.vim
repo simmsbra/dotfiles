@@ -235,10 +235,12 @@ nnoremap <Leader>e :lockmarks write<CR>
 nnoremap <Leader>E :wq<CR>
 " quit window
 nnoremap <Leader>u :quit<CR>
+" swap to the alternate buffer. easier than CTRL-6
+nnoremap <Leader>s :edit #<CR>
 " turn off search highlighting
-nnoremap <Leader>t :nohlsearch<CR>
+nnoremap <Leader>h :nohlsearch<CR>
 " refresh the syntax highlighting for when its parsing gets messed up
-nnoremap <Leader>s :syntax sync fromstart<CR>
+nnoremap <Leader>1 :syntax sync fromstart<CR>
 " toggle line numbers so can highlight text with mouse (for copying) without
 " also selecting the line number text
 nnoremap <Leader>U :set number! relativenumber!<CR>
@@ -408,10 +410,10 @@ function! TaskComplete()
     endif
     normal! ^
 endfunction
-nnoremap <Leader>ha :call TaskUnmark()<CR>
-nnoremap <Leader>ho :call TaskDefer()<CR>
-nnoremap <Leader>he :call TaskPrefer()<CR>
-nnoremap <Leader>hu :call TaskComplete()<CR>
+nnoremap <Leader>ta :call TaskUnmark()<CR>
+nnoremap <Leader>to :call TaskDefer()<CR>
+nnoremap <Leader>te :call TaskPrefer()<CR>
+nnoremap <Leader>tu :call TaskComplete()<CR>
 
 " ---------- Mappings that Override Default Actions ----------
 " make n only jump to the next result when search results are being highlit.
