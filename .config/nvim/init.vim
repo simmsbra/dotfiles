@@ -430,6 +430,15 @@ inoremap <C-p> <C-n>
 " ^ is harder to type than 0, but i use that action way more often, so swap them
 nnoremap ^ 0
 nnoremap 0 ^
+" swap these pairs to unload right index finger
+nnoremap <C-n> <C-f>
+nnoremap <C-f> <C-n>
+nnoremap <C-p> <C-b>
+nnoremap <C-b> <C-p>
+vnoremap <C-n> <C-f>
+vnoremap <C-f> <C-n>
+vnoremap <C-p> <C-b>
+vnoremap <C-b> <C-p>
 " i want to be able to do one normal mode command, like p, while in insert mode
 " but without losing my current identation. this can be done with the action of
 " <C-\><C-o> but <C-o> is easier to type
