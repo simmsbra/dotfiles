@@ -223,8 +223,8 @@ autocmd FileType html setlocal shiftwidth=2 tabstop=2
 set wildignorecase
 
 " ---------- Custom Mappings ----------
-nnoremap <Space> <Nop>
-:let mapleader = " "
+nnoremap [ <Nop>
+:let mapleader = "["
 nnoremap <Leader>o o<Esc>k
 " write but don't change the marks in the file, because some are used for the
 " indentation mappings. this way, writing between pasting something and using an
