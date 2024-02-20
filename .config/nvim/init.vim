@@ -174,11 +174,11 @@ function! DeleteTrailingWhitespace()
 endfunction
 
 
-" i want my manually opened and closed folds for *.txt files to persist after
+" i want my manually opened and closed folds for all files to persist after
 " exiting. this is taken from :h loadview. the 'silent!' ignores errors, like
 " ones about folds not being present in the file anymore
-autocmd BufWinLeave *.txt mkview
-autocmd BufWinEnter *.txt silent! loadview
+autocmd BufWinLeave *.* mkview
+autocmd BufWinEnter *.* silent! loadview
 
 
 " ---------- Display Stuff ----------
