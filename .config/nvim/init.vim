@@ -236,7 +236,7 @@ nnoremap <Leader>E :wq<CR>
 " quit window
 nnoremap <Leader>u :quit<CR>
 " swap to the alternate buffer. easier than CTRL-6
-nnoremap <Leader>s :edit #<CR>
+nnoremap <Leader>j :edit #<CR>
 " turn off search highlighting
 nnoremap <Leader>h :nohlsearch<CR>
 " refresh the syntax highlighting for when its parsing gets messed up
