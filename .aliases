@@ -48,7 +48,6 @@ alias ge='
     echo "______________________________________________________BRANCHES"; gb;
 '
 
-alias mygc='gcc -g -Wall -Wextra -std=c17'
 # the default docker ps format can be too long for my screen
 alias dps='
     sudo docker ps --format \
@@ -75,5 +74,6 @@ btouch() { # "bash touch" -- create an executable bash script template file
     chmod u+x "$1"
 }
 
+alias mygc='gcc -std=c17 -g -Wall -Wextra -fsanitize=address,undefined'
 alias myjpg='jpegoptim --force --all-progressive --strip-all --totals'
 alias mypng='optipng -strip all -i 0 -o7'
