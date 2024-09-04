@@ -35,17 +35,14 @@ endfunction
 function! MyFoldText()
     let result = foldtext() " Start with the default foldtext.
 
-    " Change the beginning of the text to look like ── (with a fixed width)
-    " instead of +--... (with a variable width due to the number of hyphens
-    " representing the fold level).
-    let result = substitute(result, '^+-\+', '──', '')
-    " Replace any padding spaces in the number of folded lines with '─'s.
-    " The pattern matches any space character whose prefix is [the beginning
-    " of the line then [1 or more '─'s] then [0 or more spaces]] and whose
-    " suffix is [[0 or more spaces] then a digit].
-    " The '()@<=' is a positive lookbehind. The '()@=' is a positive lookahead.
-    let result = substitute(result, '\(^─\+ *\)\@<= \( *[0-9]\)\@=', '─', 'g')
-    let result = substitute(result, ' line[s]*: ', '──── ', '')
+    " Change the beginning of the foldtext (before the line's actual text).
+    let numberOfFoldedLines = v:foldend - v:foldstart + 1
+    let result = substitute(
+        \ result,
+        \ '^.*line[s]*: ',
+        \ '──' . PadString(numberOfFoldedLines, 3, '─') . '──── ',
+        \ ''
+    \ )
 
     " If the folded line is indented more than the width of the foldtext prefix,
     " then add spacing characters to align them.
@@ -60,6 +57,11 @@ function! MyFoldText()
 
     " A space between this foldtext and the following fold fillchars looks good.
     return result . ' '
+endfunction
+
+" https://stackoverflow.com/a/4965113
+function! PadString(string, width, paddingChar)
+    return repeat(a:paddingChar, a:width - len(a:string)) . a:string
 endfunction
 
 " having these 2 functions is kind of verbose but i don't want to have to
