@@ -55,8 +55,20 @@ function! MyFoldText()
         let result = spacing . result
     endif
 
-    " A space between this foldtext and the following fold fillchars looks good.
-    return result . ' '
+    let result .= ' '
+
+    " Add back the colorcolumn char so that the column continues through folds.
+    if &colorcolumn
+        let widthBeforeCol = &colorcolumn - 1 " # of char spots before column
+        if strcharlen(result) > widthBeforeCol
+            let result = result[:byteidx(result, widthBeforeCol - 1)]
+        else
+            let result .= repeat('─', widthBeforeCol - strcharlen(result))
+        endif
+        let result .= '█'
+    endif
+
+    return result
 endfunction
 
 " https://stackoverflow.com/a/4965113
