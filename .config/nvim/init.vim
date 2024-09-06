@@ -208,6 +208,7 @@ if &diff
 else
     syntax on
 endif
+set termguicolors
 colorscheme portal
 " no special styling of certain HTML tags. for example, <em> text being highlit
 let html_no_rendering=1
