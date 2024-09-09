@@ -74,6 +74,6 @@ btouch() { # "bash touch" -- create an executable bash script template file
     chmod u+x "$1"
 }
 
-alias mygc='gcc -std=c17 -g -Wall -Wextra -fsanitize=address,undefined'
+alias mygc='gcc -std=c17 -g -Wall -Wextra'
 alias myjpg='jpegoptim --force --all-progressive --strip-all --totals'
 alias mypng='optipng -strip all -i 0 -o7'
