@@ -23,9 +23,6 @@ bindkey ^T history-incremental-search-forward
 # if needed, it will truncate itself (eating the left side) to guarantee at
 # least 45 characters of space after the prompt
 PROMPT='%-45<...<%F{cyan}%~ %F{white}%# '
-# make sure the sudoedit command uses neovim (don't need to put neovim's
-# absolute path because sudo will check my PATH to find the program)
-export SUDO_EDITOR=nvim
 
 # lowercase letters can match uppercase letters with tab completion
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
@@ -45,4 +42,9 @@ fi
 
 if [ -f ~/.fortunes/fortunes ] && [ -f ~/.fortunes/fortunes.dat ]; then
     fortune ~/.fortunes/
+fi
+
+# make sure that the sudoedit command uses neovim, if it's available
+if command -v nvim > /dev/null ; then
+    export SUDO_EDITOR=$(which nvim)
 fi
