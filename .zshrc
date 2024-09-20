@@ -1,9 +1,3 @@
-# Lines configured by zsh-newuser-install
-HISTFILE=~/.histfile
-HISTSIZE=16000
-SAVEHIST=16000
-bindkey -v
-# End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/brandon/.zshrc'
 
@@ -12,8 +6,13 @@ compinit
 # End of lines added by compinstall
 
 
-# make Ctrl-R work like default bash
-# search though history for pattern
+HISTFILE=~/.histfile
+HISTSIZE=16000
+SAVEHIST=16000
+
+# use vim mode
+bindkey -v
+# make Ctrl-R work like default bash -- search though history for pattern
 bindkey ^R history-incremental-search-backward
 # be able to go in the other direction if you overshoot your search result
 bindkey ^T history-incremental-search-forward
