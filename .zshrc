@@ -1,4 +1,6 @@
+eval $(dircolors) # sets LS_COLORS for zsh completion colors below
 # The following lines were added by compinstall
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle :compinstall filename '/home/brandon/.zshrc'
 
 autoload -Uz compinit
