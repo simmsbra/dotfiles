@@ -44,6 +44,8 @@ if [ -f ~/.fortunes/fortunes ] && [ -f ~/.fortunes/fortunes.dat ]; then
     fortune ~/.fortunes/
 fi
 
+export PATH="$PATH:/opt/nvim-linux64/bin"
+
 # make sure that the sudoedit command uses neovim, if it's available
 if command -v nvim > /dev/null ; then
     export SUDO_EDITOR=$(which nvim)
