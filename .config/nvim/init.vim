@@ -253,7 +253,8 @@ nnoremap <Leader>u :quit<CR>
 " swap to the alternate buffer. easier than CTRL-6
 nnoremap <Leader>j :edit #<CR>
 " turn off search highlighting
-nnoremap <Leader>h :nohlsearch<CR>
+" ! LANGMAP-affected (see LANGMAP section)
+nnoremap <Leader>r :nohlsearch<CR>
 " refresh the syntax highlighting for when its parsing gets messed up
 nnoremap <Leader>1 :syntax sync fromstart<CR>
 " toggle line numbers so can highlight text with mouse (for copying) without
@@ -275,8 +276,10 @@ nnoremap <Leader>no zo
 nnoremap <Leader>nO zO
 nnoremap <Leader>nm zm
 nnoremap <Leader>nM zM
-nnoremap <Leader>nr zr
-nnoremap <Leader>nR zR
+" ! LANGMAP-affected (see LANGMAP section)
+nnoremap <Leader>nh zr
+" ! LANGMAP-affected (see LANGMAP section)
+nnoremap <Leader>nH zR
 nnoremap <Leader>ne zz
 nnoremap <Leader>nc zt
 " like zt, but leave some more lines above the cursor
@@ -293,16 +296,19 @@ vnoremap <Leader>p "_dP
 " originally had i as shift right and d as shift left, but that confused me
 " once because in dvorak, i is on the left, like <, but it goes in the opposite
 " direction (and vice versa for d)
+" ! LANGMAP-affected (see LANGMAP section)
 nnoremap <Leader>i :call IndentPreviouslyChangedBlock(-1)<CR>
-nnoremap <Leader>d :call IndentPreviouslyChangedBlock(1)<CR>
+nnoremap <Leader>s :call IndentPreviouslyChangedBlock(1)<CR>
 " use same key sequences from above, but for indenting visually-selected lines
+" ! LANGMAP-affected (see LANGMAP section)
 vnoremap <Leader>i <
-vnoremap <Leader>d >
+vnoremap <Leader>s >
 " similar to above mappings but for the current line. i chose "a" as the prefix
 " key because it is currently not being used, it is on another hand than the leader
 " key, and it does not use the same finger as either indent key
+" ! LANGMAP-affected (see LANGMAP section)
 nnoremap <Leader>ai V<
-nnoremap <Leader>ad V>
+nnoremap <Leader>as V>
 " paste clipboard register under current line while keeping the current
 " indentation level. this mapping is intended to make it easy to paste multiline
 " clipboard contents with proper indentation (both of the content and of our
@@ -448,6 +454,15 @@ noremap <C-n> <C-f>
 noremap <C-f> <C-n>
 noremap <C-p> <C-b>
 noremap <C-b> <C-p>
+" LANGMAP Section:
+" The easiest way (that I know of) of swapping very basic commands that are used
+" everywhere and in multiple different ways (like "d4d") is to use langmap. This
+" way, instead of writing mappings for all that you can think of, and doing
+" hacky things to get number arguments to work, you just use this and it applies
+" to everything. The only problem is that in this rc file, if you want to make a
+" mapping that includes a langmapped key, you must write the key that it is
+" langmapped to (instead of the one you'll actually type when using the mapping)
+set langmap=hr,rh,HR,RH,ds,sd,DS,SD
 " i want to be able to do one normal mode command, like p, while in insert mode
 " but without losing my current identation. this can be done with the action of
 " <C-\><C-o> but <C-o> is easier to type
