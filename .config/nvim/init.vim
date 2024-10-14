@@ -309,10 +309,8 @@ nnoremap <Leader>ad V>
 " current indentation level). for non-multiline contents, you can still just do
 " ctrl-shift-v in insert mode
 nnoremap <Leader>p :call PasteBlockFromClipboardAtCurrentIndentationLevel()<CR>
-" remove trailing whitespace from the lines in the current visual selection
-vnoremap <Leader>l :call DeleteTrailingWhitespace()<CR>
-" remove trailing whitespace from the current line
-nnoremap <Leader>l :call DeleteTrailingWhitespace()<CR>
+" remove trailing whitespace from the current line or current visual selection
+noremap <Leader>l :call DeleteTrailingWhitespace()<CR>
 " move cursor to column 80. i frequently have to do this to split long lines
 nnoremap <Leader>8 80<Bar>
 " easier way to reload this config file (especially when making edits to it)
@@ -446,14 +444,10 @@ inoremap <C-p> <C-n>
 nnoremap ^ 0
 nnoremap 0 ^
 " swap these pairs to unload right index finger
-nnoremap <C-n> <C-f>
-nnoremap <C-f> <C-n>
-nnoremap <C-p> <C-b>
-nnoremap <C-b> <C-p>
-vnoremap <C-n> <C-f>
-vnoremap <C-f> <C-n>
-vnoremap <C-p> <C-b>
-vnoremap <C-b> <C-p>
+noremap <C-n> <C-f>
+noremap <C-f> <C-n>
+noremap <C-p> <C-b>
+noremap <C-b> <C-p>
 " i want to be able to do one normal mode command, like p, while in insert mode
 " but without losing my current identation. this can be done with the action of
 " <C-\><C-o> but <C-o> is easier to type
