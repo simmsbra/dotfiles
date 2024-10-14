@@ -208,6 +208,8 @@ if &diff
 else
     syntax on
 endif
+autocmd BufRead,BufNewFile .aliases set syntax=bash
+autocmd BufRead,BufNewFile todo.txt set syntax=todo
 set termguicolors
 colorscheme portal
 " no special styling of certain HTML tags. for example, <em> text being highlit
