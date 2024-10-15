@@ -19,14 +19,13 @@ bindkey ^R history-incremental-search-backward
 # be able to go in the other direction if you overshoot your search result
 bindkey ^T history-incremental-search-forward
 # swap some keys to match my vim config
-bindkey -M vicmd -r h
-bindkey -M vicmd -r r
 bindkey -M vicmd h vi-replace-chars
+bindkey -M vicmd H vi-replace
 bindkey -M vicmd r vi-backward-char
-bindkey -M vicmd -r d
-bindkey -M vicmd -r s
 bindkey -M vicmd d vi-substitute
+bindkey -M vicmd D vi-change-whole-line
 bindkey -M vicmd s vi-delete
+bindkey -M vicmd S vi-kill-eol
 
 # prompt with present dir and privilege character (%/#)
 # if needed, it will truncate itself (eating the left side) to guarantee at
