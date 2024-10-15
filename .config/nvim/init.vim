@@ -356,7 +356,7 @@ nnoremap <Leader>6 :cnext <Bar> normal zv zz<CR>
 " https://stackoverflow.com/a/630913
 cabbrev h vert help
 " quick way to toggle color column
-noremap Q :call ToggleColorColumn()<CR>
+noremap <Leader>9 :call ToggleColorColumn()<CR>
 " insert current datestamp
 inoremap <F3> <C-R>=strftime("%Y-%m-%d")<CR>
 
@@ -464,7 +464,7 @@ noremap <C-b> <C-p>
 " to everything. The only problem is that in this rc file, if you want to make a
 " mapping that includes a langmapped key, you must write the key that it is
 " langmapped to (instead of the one you'll actually type when using the mapping)
-set langmap=hr,rh,HR,RH,ds,sd,DS,SD
+set langmap=hr,rh,HR,RH,ds,sd,DS,SD,bq,qb,BQ,QB
 " i want to be able to do one normal mode command, like p, while in insert mode
 " but without losing my current identation. this can be done with the action of
 " <C-\><C-o> but <C-o> is easier to type
