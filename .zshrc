@@ -27,7 +27,9 @@ bindkey -M vicmd D vi-change-whole-line
 bindkey -M vicmd s vi-delete
 bindkey -M vicmd S vi-kill-eol
 bindkey -M vicmd -r b
+bindkey -M vicmd -r B
 bindkey -M vicmd q vi-backward-word
+bindkey -M vicmd Q vi-backward-blank-word
 
 # prompt with present dir and privilege character (%/#)
 # if needed, it will truncate itself (eating the left side) to guarantee at
