@@ -1,0 +1,15 @@
+# Copy and paste this into your Vimium Options page.
+
+# Insert your preferred key mappings here.
+map K previousTab
+map J nextTab
+map o LinkHints.activateMode
+map O LinkHints.activateModeToOpenInNewTab
+map f Vomnibar.activate
+map F Vomnibar.activateInNewTab
+unmap H
+map R goBack
+unmap zH
+map zR scrollToLeft
+map r scrollLeft
+map h reload

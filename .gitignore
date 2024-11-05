@@ -16,6 +16,8 @@
 !/.config/
 /.config/*
 !/.config/nvim/
+# include vimium custom key mappings file
+!/.config/vimium-custom-key-mappings
 # include one file under nvim data dir for custom speeddating plugin date format
 !/.local/
 /.local/*
