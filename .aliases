@@ -61,7 +61,7 @@ alias lh='ls -l --all --classify --color=always --human-readable'
 alias lo='ls -l --all --classify --color=always --group-directories-first'
 alias seu='sudo du -ahd1 | sort -h'
 alias mkd='mkdir'
-alias sau='sudo apt upgrade'
+alias sau='sudo apt update && sudo apt upgrade'
 alias ar='clear'
 btouch() { # "bash touch" -- create an executable bash script template file
     if [ -f "$1" ]; then
