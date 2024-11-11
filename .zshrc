@@ -58,7 +58,8 @@ fi
 
 export PATH="$PATH:/opt/nvim-linux64/bin"
 
-# make sure that the sudoedit command uses neovim, if it's available
+# make sure that sudoedit and other tools use neovim, if it's available
 if command -v nvim > /dev/null ; then
     export SUDO_EDITOR=$(which nvim)
+    export EDITOR=$(which nvim)
 fi
