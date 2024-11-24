@@ -40,3 +40,7 @@
 !/.local/share/nvim/site/pack/utilities/start/speeddating/after/plugin/
 /.local/share/nvim/site/pack/utilities/start/speeddating/after/plugin/*
 !/.local/share/nvim/site/pack/utilities/start/speeddating/after/plugin/custom-format.vim
+# include Konsole colorscheme file
+!/.local/share/konsole/
+/.local/share/konsole/*
+!/.local/share/konsole/Scallop.colorscheme
