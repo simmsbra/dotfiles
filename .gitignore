@@ -12,7 +12,7 @@
 !/.zshenv
 !/.zshrc
 
-# include neovim config
+# include neovim config files
 !/.config/
 /.config/*
 !/.config/nvim/

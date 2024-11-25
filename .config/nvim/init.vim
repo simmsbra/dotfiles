@@ -210,6 +210,7 @@ else
 endif
 autocmd BufRead,BufNewFile .aliases set syntax=bash
 autocmd BufRead,BufNewFile todo.txt set syntax=todo
+luafile ~/.config/nvim/treesitter.lua
 set termguicolors
 colorscheme portal
 " no special styling of certain HTML tags. for example, <em> text being highlit
