@@ -1,3 +1,12 @@
+" when executing a macro that contains langmapped keys, they are executed as
+" as if they were not langmapped. but this doesn't happen if 'langremap' is
+" set, so temporarily set it while executing the macro
+function! RunMacroWithLangremap(registerLetter, count)
+    set langremap
+    execute "normal " .. a:count .. "@" .. a:registerLetter
+    set langnoremap
+endfunction
+
 " opens up the command-line-window and constructs a :let @a="" command for
 " editing whichever macro register letter is given. just edit the macro text and
 " then hit enter. note that you'll have to escape " characters; and if you want
@@ -324,13 +333,18 @@ noremap <Leader>l :call DeleteTrailingWhitespace()<CR>
 nnoremap <Leader>8 80<Bar>
 " easier way to reload this config file (especially when making edits to it)
 nnoremap <Leader>f :source ~/.config/nvim/init.vim<CR>
-" easier way (in terms of typing) to call a macro
-nnoremap <Leader>m @
-" quick way to call a macro on the set of currently visually selected lines
+" call a macro without running into the bug where langmap breaks macros
+for letter in split('a b c d e f g h i j k l m n o p q r s t u v w x y z')
+    " (:h v:count)
+    execute 'nnoremap'
+    \   .. ' <Leader>m' .. letter
+    \   .. ' :<C-U>call RunMacroWithLangremap("' .. letter .. '", v:count1)<CR>'
+endfor
+" call a macro on the set of currently visually selected lines
 for letter in split('a b c d e f g h i j k l m n o p q r s t u v w x y z')
     execute "vnoremap"
     \   .. " <Leader>m" .. letter
-    \   .. " :'<'>normal! @" .. letter .. "<CR>"
+    \   .. " :'<'>call RunMacroWithLangremap(\"" .. letter .. "\", 1)<CR>"
 endfor
 " editing a macro by pasting it into your buffer and then yanking it back into
 " the register does not work well, especially if there are things like newlines
