@@ -264,6 +264,7 @@ nnoremap <Leader>E :wq<CR>
 nnoremap <Leader>u :quit<CR>
 " swap to the alternate buffer. easier than CTRL-6
 nnoremap <Leader>j :edit #<CR>
+nnoremap <C-^> <Nop>
 " turn off search highlighting
 " ! LANGMAP-affected (see LANGMAP section)
 nnoremap <Leader>r :nohlsearch<CR>
