@@ -366,8 +366,8 @@ nnoremap <Leader>" I"<Esc>A"<Esc>^
 " when navigating to a quick fix result, always open all folds and center it.
 " this is useful when used in macros, since it keeps things looking consistent.
 " (have to write bar this way so it's not interpreted right now. ":h map-bar")
-nnoremap <Leader>5 :cprevious <Bar> normal zv zz<CR>
-nnoremap <Leader>6 :cnext <Bar> normal zv zz<CR>
+nnoremap <Leader>5 :cprevious <Bar> normal zvzz<CR>
+nnoremap <Leader>6 :cnext <Bar> normal zvzz<CR>
 " :help opens in a horizontal orientation, but i like it vertical
 " https://stackoverflow.com/a/630913
 cabbrev h vert help
