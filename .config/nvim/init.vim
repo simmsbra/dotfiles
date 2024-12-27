@@ -281,6 +281,7 @@ nnoremap ,n <Nop>
 tnoremap ,n <C-\><C-n>
 " easy way to open files from grep results in a terminal buffer
 nnoremap <Leader>4 0"zyE:e <C-r>z<CR>
+nnoremap <Leader>3 0"zyE<C-w>p:e <C-r>z<CR>
 " remap frequently-used commands that use 'z' so that they don't use right pinky
 nnoremap <Leader>na za
 nnoremap <Leader>nA zA
@@ -376,7 +377,6 @@ nnoremap <Leader>6 :cnext <Bar> normal zvzz<CR>
 " :help opens in a horizontal orientation, but i like it vertical
 " https://stackoverflow.com/a/630913
 cabbrev h vert help
-cabbrev rg grep
 " quick way to toggle color column
 noremap <Leader>9 :call ToggleColorColumn()<CR>
 " insert current datestamp
