@@ -494,7 +494,10 @@ inoremap <C-o> <C-\><C-o>
 
 " ---------- Flow Control Block Snippets ----------
 inoremap {if if () {<CR>}<Esc>kf(a
+" :h map_space_in_lhs
+inoremap { if if ()<CR>{<CR>}<Esc>kkf(a
 inoremap {el if () {<CR>} else {<CR>}<Esc>kkf(a
+inoremap { el if ()<CR>{<CR>}<CR>else<CR>{<CR>}<Esc>kkkkkf(a
 inoremap {ie if () {<CR>} else if () {<CR>} else {<CR>}<Esc>kkkf(a
 inoremap {f for () {<CR>}<Esc>kf(a
 inoremap {fe foreach () {<CR>}<Esc>kf(a
