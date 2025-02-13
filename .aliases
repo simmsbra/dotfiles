@@ -17,6 +17,9 @@ alias emn='git merge --no-ff'
 alias emv='git mv'
 alias ep='git pull'
 alias epush='git push'
+epushu() {
+    git push --set-upstream origin $(git branch --show-current)
+}
 alias er='git rebase --rebase-merges'
 alias erm='git rebase --rebase-merges master'
 alias eri='git rebase --rebase-merges --interactive'
