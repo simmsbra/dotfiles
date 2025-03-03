@@ -9,8 +9,8 @@ compinit
 
 
 HISTFILE=~/.histfile
-HISTSIZE=16000
-SAVEHIST=16000
+HISTSIZE=64000
+SAVEHIST=64000
 
 # use vim mode
 bindkey -v
