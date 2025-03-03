@@ -486,3 +486,5 @@ inoremap {ie if () {<CR>} else if () {<CR>} else {<CR>}<Esc>kkkf(a
 inoremap {f for () {<CR>}<Esc>kf(a
 inoremap {fe foreach () {<CR>}<Esc>kf(a
 inoremap {tc try {<CR>} catch () {<CR>}<Esc>kf(a
+
+lua vim.g.editorconfig = false
