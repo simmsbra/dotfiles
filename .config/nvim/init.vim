@@ -116,24 +116,6 @@ endfunction
 " -- for example, in my .aliases file
 autocmd BufReadPre * :call InitializeColorColumnBasedOnFileType()
 
-" when using sudoedit, the original filename is not present, so filetype
-" detection (for syntax highlighting) based on filename won't work correctly. so
-" here are custom rules to detect certain filetypes based on file content.
-function! DetectMissingFiletype()
-    if (&filetype == '') || (&filetype == 'conf')
-        let originalCursorPosition = getcurpos()
-        call cursor(1, 1)
-        " if these common apache config patterns are within the first 1024 lines
-        if search('<VirtualHost\|<Directory', 'cn', 1024) != 0
-            set filetype=apache
-        elseif search('listen 80;', 'cn', 1024) != 0
-            set filetype=nginx
-        endif
-        call setpos('.', originalCursorPosition)
-    endif
-endfunction
-autocmd VimEnter * :call DetectMissingFiletype()
-
 " if the file is short enough to fit entirely on screen, open all folds
 function! UnfoldFoldsIfFileIsShortEnoughToFitOnScreen()
     let maxAmountOfLinesDisplayable = winheight(0)
