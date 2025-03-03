@@ -264,6 +264,8 @@ tnoremap ,n <C-\><C-n>
 " easy way to open files from grep results in a terminal buffer
 nnoremap <Leader>4 0"zyE:e <C-r>z<CR>
 nnoremap <Leader>3 0"zyE<C-w>p:e <C-r>z<CR>
+" easy way to grep (rg) the current word in another split in a terminal buffer
+nnoremap <Leader>8 yiw<C-w>p:terminal<CR>arg "\b<C-\><C-n>pa\b"<CR>
 " remap frequently-used commands that use 'z' so that they don't use right pinky
 nnoremap <Leader>na za
 nnoremap <Leader>nA zA
@@ -319,7 +321,7 @@ nnoremap <Leader>p :call PasteBlockFromClipboardAtCurrentIndentationLevel()<CR>
 " remove trailing whitespace from the current line or current visual selection
 noremap <Leader>l :call DeleteTrailingWhitespace()<CR>
 " move cursor to column 80. i frequently have to do this to split long lines
-nnoremap <Leader>8 80<Bar>
+nnoremap <Leader>9 80<Bar>
 " easier way to reload this config file (especially when making edits to it)
 nnoremap <Leader>f :source ~/.config/nvim/init.vim<CR>
 " call a macro without running into the bug where langmap breaks macros
@@ -360,7 +362,7 @@ nnoremap <Leader>6 :cnext <Bar> normal zvzz<CR>
 " https://stackoverflow.com/a/630913
 cabbrev h vert help
 " quick way to toggle color column
-noremap <Leader>9 :call ToggleColorColumn()<CR>
+"noremap <Leader>9 :call ToggleColorColumn()<CR>
 " insert current datestamp
 inoremap <F3> <C-R>=strftime("%Y-%m-%d")<CR>
 
