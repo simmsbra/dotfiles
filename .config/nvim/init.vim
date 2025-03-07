@@ -366,6 +366,8 @@ cabbrev h vert help
 "noremap <Leader>9 :call ToggleColorColumn()<CR>
 " insert current datestamp
 inoremap <F3> <C-R>=strftime("%Y-%m-%d")<CR>
+" easier way to enter command-line mode
+nnoremap <Leader>; :
 
 " ---------- Custom Mappings, Task Tracking Markers ----------
 " Task Examples:
