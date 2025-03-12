@@ -8,4 +8,4 @@ syntax match Identifier /(\w\+ of every \w\+) / " (1st of every month), etc
 syntax match Type /^\s*\*\+\s/ " task completion markers
 syntax match Type /^\s*-\s/ " task completion markers
 
-syntax match Identifier /^\s\+[a-z]\. / " option list a., b., etc
+syntax match Identifier /^\s\+[a-z]\./ " option list a., b., etc
