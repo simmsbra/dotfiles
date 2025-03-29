@@ -56,7 +56,7 @@ fi
 if lsmod | grep pcspkr > /dev/null ; then
     echo '-----------------------------------------------------'
     echo 'Note: PC Speaker (system beep) is on.'
-    echo 'Run "sudo /usr/bin/modprobe -r pcspkr" to disable it.'
+    echo 'Run "sudo /usr/sbin/modprobe -r pcspkr" to disable it.'
     echo 'Run "TODO" to disable it between restarts.'
     echo '-----------------------------------------------------'
 fi
