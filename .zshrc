@@ -52,6 +52,15 @@ if [ -f ~/.aliases ]; then
     . ~/.aliases
 fi
 
+# notify if the pc speaker is on // https://wiki.archlinux.org/title/PC_speaker
+if lsmod | grep pcspkr > /dev/null ; then
+    echo '-----------------------------------------------------'
+    echo 'Note: PC Speaker (system beep) is on.'
+    echo 'Run "sudo /usr/bin/modprobe -r pcspkr" to disable it.'
+    echo 'Run "TODO" to disable it between restarts.'
+    echo '-----------------------------------------------------'
+fi
+
 if [ -f ~/.fortunes/fortunes ] && [ -f ~/.fortunes/fortunes.dat ]; then
     fortune ~/.fortunes/
 fi
