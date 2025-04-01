@@ -1,7 +1,7 @@
 " here is the set of colors i've been using. i think most of them are from the
 " Breeze colorscheme (of Konsole)
 let s:colorBlack   = "#131313" " 0
-let s:colorRed     = "#cc2f1f" " 1
+let s:colorRed     = "#e7301b" " 1
 let s:colorGreen   = "#1cdc9a" " 2
 let s:colorYellow  = "#fdbc4b" " 3
 let s:colorBlue    = "#3daee9" " 4
@@ -13,7 +13,7 @@ let s:colorIntenseRed     = "#ed1515" " 1
 let s:colorIntenseGreen   = "#11d116" " 2
 let s:colorIntenseYellow  = "#f67400" " 3
 let s:colorIntenseBlue    = "#1d99f3" " 4
-let s:colorIntenseMagenta = "#9b59b6" " 5
+let s:colorIntenseMagenta = "#a968c3" " 5
 let s:colorIntenseCyan    = "#1abc9c" " 6
 let s:colorIntenseWhite   = "#ffffff" " 7
 let s:background = s:colorBlack
