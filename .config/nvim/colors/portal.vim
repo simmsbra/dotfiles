@@ -24,6 +24,12 @@ let g:colors_name = "portal"
 execute "highlight Normal guibg=" .. s:background .. " guifg=" .. s:foreground
 " matches line numbers
 execute "highlight Folded guibg=" .. s:background .. " guifg=NvimDarkGrey4"
+highlight LineNr guifg=NvimLightGrey4
+" give all visually-selected things a readable color combo with no syntax
+" highlighting. this solves problems like when visually selecting folds'
+" text color is the same as the fold background color, making them unreadable
+execute "highlight Visual guibg=NvimDarkGrey4 guifg=" .. s:foreground
+
 execute "highlight Constant guifg=" .. s:colorRed
 execute "highlight String guifg=" .. s:colorRed
 execute "highlight Comment guifg=" .. s:colorIntenseMagenta
@@ -33,8 +39,3 @@ execute "highlight Statement guifg=" .. s:colorYellow
 execute "highlight Todo guibg=" .. s:colorYellow .. " guifg=" .. s:background
 execute "highlight Type guifg=" .. s:colorBlue
 
-" without this, the prob is that, when visually selecting folds, the fold text
-" color is the same as the fold background color, so you can't read it. i'm
-" trying this out for a while. although this essentially removes all syntax
-" highlighting for visually-selected things
-execute "highlight Visual guibg=NvimDarkGrey4 guifg=" .. s:foreground
