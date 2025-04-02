@@ -39,3 +39,20 @@ execute "highlight Statement guifg=" .. s:colorYellow
 execute "highlight Todo guibg=" .. s:colorYellow .. " guifg=" .. s:background
 execute "highlight Type guifg=" .. s:colorBlue
 
+" use the same colors for terminal mode
+let g:terminal_color_0 = s:colorBlack
+let g:terminal_color_1 = s:colorRed
+let g:terminal_color_2 = s:colorGreen
+let g:terminal_color_3 = s:colorYellow
+let g:terminal_color_4 = s:colorBlue
+let g:terminal_color_5 = s:colorMagenta
+let g:terminal_color_6 = s:colorCyan
+let g:terminal_color_7 = s:colorWhite
+let g:terminal_color_8 = s:colorIntenseBlack
+let g:terminal_color_9 = s:colorIntenseRed
+let g:terminal_color_10 = s:colorIntenseGreen
+let g:terminal_color_11 = s:colorIntenseYellow
+let g:terminal_color_12 = s:colorIntenseBlue
+let g:terminal_color_13 = s:colorIntenseMagenta
+let g:terminal_color_14 = s:colorIntenseCyan
+let g:terminal_color_15 = s:colorIntenseWhite
