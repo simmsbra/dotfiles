@@ -247,6 +247,8 @@ nnoremap <Leader>E :wq<CR>
 nnoremap <Leader>u :quit<CR>
 " swap to the alternate buffer. easier than CTRL-6
 nnoremap <Leader>j :edit #<CR>
+" quick way to start typing different buffer name to switch to it
+nnoremap <Leader>f :buffer | " bu[f]fer
 nnoremap <C-^> <Nop>
 " turn off search highlighting
 " ! LANGMAP-affected (see LANGMAP section)
