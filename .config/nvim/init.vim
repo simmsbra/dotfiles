@@ -326,7 +326,8 @@ noremap <Leader>l :call DeleteTrailingWhitespace()<CR>
 " move cursor to column 80. i frequently have to do this to split long lines
 nnoremap <Leader>7 80<Bar>
 " easier way to reload this config file (especially when making edits to it)
-nnoremap <Leader>f :source ~/.config/nvim/init.vim<CR>
+" ! LANGMAP-affected (see LANGMAP section)
+nnoremap <Leader>h :source ~/.config/nvim/init.vim<CR>| " [r]eload
 " call a macro without running into the bug where langmap breaks macros
 for letter in split('a b c d e f g h i j k l m n o p q r s t u v w x y z')
     " (:h v:count)
