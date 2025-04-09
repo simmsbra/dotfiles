@@ -270,7 +270,7 @@ nnoremap <Leader>3 0"zyE<C-w>p:e <C-r>z<CR>
 nnoremap <Leader>8 yiw<C-w>p:terminal<CR>arg "\b<C-\><C-n>pa\b"<CR>
 nnoremap <Leader>9 yiw:terminal<CR>arg "\b<C-\><C-n>pa\b"<CR>
 " remap frequently-used commands that use 'z' so that they don't use right pinky
-nnoremap <Leader>na za
+nnoremap za <Nop>| nnoremap <Space> za| " quick way to toggle folds
 nnoremap <Leader>nA zA
 nnoremap <Leader>nv zv
 nnoremap <Leader>nx zx
