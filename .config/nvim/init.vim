@@ -186,7 +186,8 @@ autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent! loadview
 
 
-" ---------- Display Stuff ----------
+" ---------- Display Stuff -----------------------------------------------------
+"
 set number relativenumber
 set list listchars=tab:>-,trail:~,extends:>,precedes:<
 " abort highlighting matching paren-like characters if it's producing a
@@ -210,7 +211,8 @@ let html_no_rendering=1
 set fillchars=fold:─
 set foldtext=MyFoldText()
 
-" ---------- Folding ----------
+" ---------- Folding -----------------------------------------------------------
+"
 " automatically fold files based on indentions
 set foldmethod=indent
 " by default, lines that start with a # are treated differently during indent
@@ -219,7 +221,8 @@ set foldignore=""
 " excludes 'hor' so that horizontal movement commands don't open folds
 set foldopen=block,mark,percent,quickfix,search,tag,undo
 
-" ---------- Indentation ----------
+" ---------- Indentation -------------------------------------------------------
+"
 filetype indent off
 set expandtab
 set shiftwidth=4
@@ -228,11 +231,13 @@ set tabstop=4
 " use smaller indentations for HTML, since it usually has lots of nesting
 autocmd FileType html setlocal shiftwidth=2 tabstop=2
 
-" ---------- Misc ----------
+" ---------- Misc --------------------------------------------------------------
+"
 set wildignorecase
 set grepprg=rg\ --vimgrep " don't include the default "-uu" argument to ripgrep
 
-" ---------- Custom Mappings ----------
+" ---------- Custom Mappings ---------------------------------------------------
+"
 nnoremap [ <Nop>
 :let mapleader = "["
 nnoremap <Leader>o o<Esc>k
@@ -372,7 +377,8 @@ inoremap <F3> <C-R>=strftime("%Y-%m-%d")<CR>
 " easier way to enter command-line mode
 nnoremap <Leader>; :
 
-" ---------- Custom Mappings, Task Tracking Markers ----------
+" ---------- Custom Mappings, Task Tracking Markers ----------------------------
+"
 " Task Examples:
 "     this task has no markers
 "     * this task is marked as being preferred 1x
@@ -448,7 +454,8 @@ nnoremap <Leader>to :call TaskDefer()<CR>
 nnoremap <Leader>te :call TaskPrefer()<CR>
 nnoremap <Leader>tu :call TaskComplete()<CR>
 
-" ---------- Mappings that Override Default Actions ----------
+" ---------- Mappings that Override Default Actions ----------------------------
+"
 " make n only jump to the next result when search results are being highlit.
 " this way i don't get teleported out of what i'm doing if i accidentally hit n.
 " i'd like to make the false value <Nop> for semantic purposes, but that doesn't
@@ -483,7 +490,8 @@ set langmap=hr,rh,HR,RH,ds,sd,DS,SD,bq,qb,BQ,QB
 " <C-\><C-o> but <C-o> is easier to type
 inoremap <C-o> <C-\><C-o>
 
-" ---------- Flow Control Block Snippets ----------
+" ---------- Flow Control Block Snippets ---------------------------------------
+"
 inoremap {if if () {<CR>}<Esc>kf(a
 " :h map_space_in_lhs
 inoremap { if if ()<CR>{<CR>}<Esc>2kf(a
