@@ -178,6 +178,45 @@ function! DeleteTrailingWhitespace()
     call setpos('.', originalCursorPosition)
 endfunction
 
+" this is similar to zk, but skips open folds
+function! MoveToNextClosedFoldUpward()
+    " the first line of the closed fold that the cursor line is in. -1 if the
+    " cursor line is not in a closed fold
+    let cursorFoldClosedVal = foldclosed(line("."))
+
+    " for each line between, and including, the cursor line and the first line
+    for lineNumber in range(line("."), 1, -1)
+        if foldclosed(lineNumber) == -1
+            " this line is not in a closed fold, so we don't want to move to it
+        elseif foldclosed(lineNumber) != cursorFoldClosedVal
+            " this line is in a closed fold that is not the same as the closed
+            " fold that the cursor is in (if it is in one)
+            execute "normal " .. lineNumber .. "G"
+            return
+        endif
+    endfor
+    " there are no closed folds above the cursor line
+endfunction
+" this is similar to zj, but skips open folds
+function! MoveToNextClosedFoldDownward()
+    " the last line of the closed fold that the cursor line is in. -1 if the
+    " cursor line is not in a closed fold
+    let cursorFoldClosedEndVal = foldclosedend(line("."))
+
+    " for each line between, and including, the cursor line and the last line
+    for lineNumber in range(line("."), line("$"))
+        if foldclosedend(lineNumber) == -1
+            " this line is not in a closed fold, so we don't want to move to it
+        elseif foldclosedend(lineNumber) != cursorFoldClosedEndVal
+            " this line is in a closed fold that is not the same as the closed
+            " fold that the cursor is in (if it is in one)
+            execute "normal " .. lineNumber .. "G"
+            return
+        endif
+    endfor
+    " there are no closed folds under the cursor line
+endfunction
+
 
 " i want my manually opened and closed folds for all files to persist after
 " exiting. this is taken from :h loadview. the 'silent!' ignores errors, like
@@ -295,6 +334,9 @@ nnoremap <Leader>nc zt
 " like zt, but leave some more lines above the cursor
 nnoremap <Leader>nt zt5<C-y>
 vnoremap <Leader>nt zt5<C-y>
+" make moving upward and downward to folds only recognize closed folds
+nnoremap zk :call MoveToNextClosedFoldUpward()<CR>
+nnoremap zj :call MoveToNextClosedFoldDownward()<CR>
 " copy into X's clipboard
 nnoremap <Leader>y "+y
 vnoremap <Leader>y "+y
