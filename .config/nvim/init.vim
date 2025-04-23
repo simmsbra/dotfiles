@@ -217,6 +217,40 @@ function! MoveToNextClosedFoldDownward()
     " there are no closed folds under the cursor line
 endfunction
 
+" Toggles fold, like "za", but when opening, this keeps opening until something
+" actually expands. The difference in behavior is only noticable on a fold
+" whose foldlevel is +2 or more than the foldlevel of the lines surrounding it.
+" For example, with all folds closed and foldmethod=indent with 4 spaces, you'd
+" have to do "za" twice in order to open the fold below:
+" |line with foldlevel 0
+" |        line with foldlevel 2 // start of closed fold
+" |        line with foldlevel 2 // end of closed fold
+" |line with foldlevel 0
+function! ToggleFoldUntilExpansion()
+    " exit if we not on a fold
+    if foldlevel(line(".")) == 0
+        return
+    endif
+
+    " the first line of the closed fold that the cursor line is in. -1 if the
+    " cursor line is not in a closed fold
+    let cursorFoldClosedVal = foldclosed(line("."))
+    " the last line of the closed fold that the cursor line is in. -1 if the
+    " cursor line is not in a closed fold
+    let cursorFoldClosedEndVal = foldclosedend(line("."))
+
+    if cursorFoldClosedVal == -1
+        normal zc
+        return
+    endif
+
+    " open until something actually expands
+    while (foldclosedend(line(".")) == cursorFoldClosedEndVal)
+            \ && (foldclosed(line(".")) == cursorFoldClosedVal)
+            normal zo
+    endwhile
+endfunction
+
 
 " i want my manually opened and closed folds for all files to persist after
 " exiting. this is taken from :h loadview. the 'silent!' ignores errors, like
@@ -334,6 +368,8 @@ nnoremap <Leader>nc zt
 " like zt, but leave some more lines above the cursor
 nnoremap <Leader>nt zt5<C-y>
 vnoremap <Leader>nt zt5<C-y>
+" quick way to toggle folds. and toggle them in a better way than default
+nnoremap <Space> :call ToggleFoldUntilExpansion()<CR>
 " make moving upward and downward to folds only recognize closed folds
 nnoremap zk :call MoveToNextClosedFoldUpward()<CR>
 nnoremap zj :call MoveToNextClosedFoldDownward()<CR>
