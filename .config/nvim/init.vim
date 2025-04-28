@@ -251,6 +251,18 @@ function! ToggleFoldUntilExpansion()
     endwhile
 endfunction
 
+" jumps to the tag under the cursor, but in the previous window
+" similar to :h CTRL-W_]
+function! JumpToTagInPreviousWindow()
+    let bufferNumber = bufnr()
+    let originalCursorPosition = getcurpos()
+    execute "normal! \<C-W>p"
+    execute "buffer " .. bufferNumber
+    call setpos('.', originalCursorPosition)
+    normal! zx
+    execute "normal! \<C-]>"
+endfunction
+
 
 " i want my manually opened and closed folds for all files to persist after
 " exiting. this is taken from :h loadview. the 'silent!' ignores errors, like
@@ -347,6 +359,9 @@ nnoremap <Leader>3 0"zyE<C-w>p:e <C-r>z<CR>
 " easy way to grep (rg) the current word in another split in a terminal buffer
 nnoremap <Leader>8 yiw<C-w>p:terminal<CR>arg "\b<C-\><C-n>pa\b"<CR>
 nnoremap <Leader>9 yiw:terminal<CR>arg "\b<C-\><C-n>pa\b"<CR>
+" instead of jumping to tag in a new split, do so in the previous window
+nnoremap <C-w>] :call JumpToTagInPreviousWindow()<CR>
+nnoremap <C-w><C-]> :call JumpToTagInPreviousWindow()<CR>
 " remap frequently-used commands that use 'z' so that they don't use right pinky
 nnoremap za <Nop>| nnoremap <Space> za| " quick way to toggle folds
 nnoremap <Leader>nA zA
