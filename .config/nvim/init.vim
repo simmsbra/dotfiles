@@ -353,12 +353,14 @@ inoremap ,n <Esc>
 vnoremap ,n <Esc>
 nnoremap ,n <Nop>
 tnoremap ,n <C-\><C-n>
-" easy way to open files from grep results in a terminal buffer
-nnoremap <Leader>4 0"zyE:e <C-r>z<CR>
-nnoremap <Leader>3 0"zyE<C-w>p:e <C-r>z<CR>
 " easy way to grep (rg) the current word in another split in a terminal buffer
-nnoremap <Leader>8 yiw<C-w>p:terminal<CR>arg "\b<C-\><C-n>pa\b"<CR>
-nnoremap <Leader>9 yiw:terminal<CR>arg "\b<C-\><C-n>pa\b"<CR>
+" ! LANGMAP-affected (see LANGMAP section)
+nnoremap <Leader>3h yiw<C-w>h:terminal<CR>arg "\b<C-\><C-n>pa\b"<CR>
+nnoremap <Leader>3l yiw<C-w>l:terminal<CR>arg "\b<C-\><C-n>pa\b"<CR>
+" easy way to open files from grep results in a terminal buffer
+" ! LANGMAP-affected (see LANGMAP section)
+nnoremap <Leader>4h 0"zyE<C-w>h:e <C-r>z<CR>
+nnoremap <Leader>4l 0"zyE<C-w>l:e <C-r>z<CR>
 " instead of jumping to tag in a new split, do so in the previous window
 nnoremap <C-w>] :call JumpToTagInPreviousWindow()<CR>
 nnoremap <C-w><C-]> :call JumpToTagInPreviousWindow()<CR>
