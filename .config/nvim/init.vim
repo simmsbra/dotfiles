@@ -3,7 +3,7 @@
 " set, so temporarily set it while executing the macro
 function! RunMacroWithLangremap(registerLetter, count)
     set langremap
-    execute "normal " .. a:count .. "@" .. a:registerLetter
+    execute "normal! " .. a:count .. "@" .. a:registerLetter
     set langnoremap
 endfunction
 
@@ -191,7 +191,7 @@ function! MoveToNextClosedFoldUpward()
         elseif foldclosed(lineNumber) != cursorFoldClosedVal
             " this line is in a closed fold that is not the same as the closed
             " fold that the cursor is in (if it is in one)
-            execute "normal " .. lineNumber .. "G"
+            execute "normal! " .. lineNumber .. "G"
             return
         endif
     endfor
@@ -210,7 +210,7 @@ function! MoveToNextClosedFoldDownward()
         elseif foldclosedend(lineNumber) != cursorFoldClosedEndVal
             " this line is in a closed fold that is not the same as the closed
             " fold that the cursor is in (if it is in one)
-            execute "normal " .. lineNumber .. "G"
+            execute "normal! " .. lineNumber .. "G"
             return
         endif
     endfor
@@ -240,14 +240,14 @@ function! ToggleFoldUntilExpansion()
     let cursorFoldClosedEndVal = foldclosedend(line("."))
 
     if cursorFoldClosedVal == -1
-        normal zc
+        normal! zc
         return
     endif
 
     " open until something actually expands
     while (foldclosedend(line(".")) == cursorFoldClosedEndVal)
             \ && (foldclosed(line(".")) == cursorFoldClosedVal)
-            normal zo
+            normal! zo
     endwhile
 endfunction
 
@@ -460,8 +460,8 @@ nnoremap <Leader>" I"<Esc>A"<Esc>^
 " when navigating to a quick fix result, always open all folds and center it.
 " this is useful when used in macros, since it keeps things looking consistent.
 " (have to write bar this way so it's not interpreted right now. ":h map-bar")
-nnoremap <Leader>5 :cprevious <Bar> normal zvzz<CR>
-nnoremap <Leader>6 :cnext <Bar> normal zvzz<CR>
+nnoremap <Leader>5 :cprevious <Bar> normal! zvzz<CR>
+nnoremap <Leader>6 :cnext <Bar> normal! zvzz<CR>
 " :help opens in a horizontal orientation, but i like it vertical
 " https://stackoverflow.com/a/630913
 cabbrev h vert help
