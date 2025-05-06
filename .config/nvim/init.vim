@@ -390,6 +390,8 @@ nnoremap <Space> :call ToggleFoldUntilExpansion()<CR>
 " make moving upward and downward to folds only recognize closed folds
 nnoremap zk :call MoveToNextClosedFoldUpward()<CR>
 nnoremap zj :call MoveToNextClosedFoldDownward()<CR>
+" ! LANGMAP-affected (see LANGMAP section)
+nnoremap zH zR | " make zR behave like normal, since langmap changes that
 " copy into X's clipboard
 nnoremap <Leader>y "+y
 vnoremap <Leader>y "+y
