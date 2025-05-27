@@ -23,8 +23,9 @@ function! OpenMacroForEditing(registerLetter)
         \ .. ":let @" .. a:registerLetter .. "="
         \ .. '"'
         \ .. "\<C-r>\<C-o>=escape(@" .. a:registerLetter .. ", '\"')\<CR>"
-        \ .. '"'
+        \ .. '" "C-v to insert special characters; \ to escape double quotes'
         \ .. "\<Esc>"
+        \ .. '0f"l'
     \ )
 endfunction
 
