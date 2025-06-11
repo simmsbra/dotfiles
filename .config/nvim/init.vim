@@ -339,7 +339,7 @@ nnoremap <Leader>u :quit<CR>
 " swap to the alternate buffer. easier than CTRL-6
 nnoremap <C-j> :edit #<CR>
 " quick way to start typing different buffer name to switch to it
-nnoremap <Leader>f :buffer | " bu[f]fer
+nnoremap <Leader>f :buffer| " bu[f]fer
 nnoremap <C-^> <Nop>
 " turn off search highlighting
 " ! LANGMAP-affected (see LANGMAP section)
@@ -374,7 +374,7 @@ nnoremap <Space> :call ToggleFoldUntilExpansion()<CR>
 nnoremap <Leader>k :call MoveToNextClosedFoldUpward()<CR>
 nnoremap <Leader>j :call MoveToNextClosedFoldDownward()<CR>
 " ! LANGMAP-affected (see LANGMAP section)
-nnoremap zH zR | " make zR behave like normal, since langmap changes that
+nnoremap zH zR| " make zR behave like normal, since langmap changes that
 " copy into X's clipboard
 nnoremap <Leader>y "+y
 vnoremap <Leader>y "+y
