@@ -366,26 +366,8 @@ nnoremap <Leader>4l 0"zyE<C-w>l:e <C-r>z<CR>
 nnoremap <C-w>] :call JumpToTagInPreviousWindow()<CR>
 nnoremap <C-w><C-]> :call JumpToTagInPreviousWindow()<CR>
 " remap frequently-used commands that use 'z' so that they don't use right pinky
-nnoremap za <Nop>| nnoremap <Space> za| " quick way to toggle folds
-nnoremap <Leader>nA zA
-nnoremap <Leader>nv zv
-nnoremap <Leader>nx zx
-nnoremap <Leader>n. zc
-nnoremap <Leader>nC zC
-vnoremap <Leader>nC zC
-nnoremap <Leader>no zo
-nnoremap <Leader>nO zO
-nnoremap <Leader>nm zm
-nnoremap <Leader>nM zM
-" ! LANGMAP-affected (see LANGMAP section)
-nnoremap <Leader>nh zr
-" ! LANGMAP-affected (see LANGMAP section)
-nnoremap <Leader>nH zR
-nnoremap <Leader>ne zz
-nnoremap <Leader>nc zt
-" like zt, but leave some more lines above the cursor
-nnoremap <Leader>nt zt5<C-y>
-vnoremap <Leader>nt zt5<C-y>
+nnoremap <Leader>n z
+nnoremap za <Nop>| " unmap this so forced to use the <Space> mapping
 " quick way to toggle folds. and toggle them in a better way than default
 nnoremap <Space> :call ToggleFoldUntilExpansion()<CR>
 " make moving upward and downward to folds only recognize closed folds
