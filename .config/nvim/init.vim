@@ -286,8 +286,8 @@ if &diff
 else
     syntax on
 endif
-autocmd BufRead,BufNewFile .aliases set syntax=bash
-autocmd BufRead,BufNewFile todo.txt set syntax=todo
+autocmd BufEnter .aliases set syntax=bash
+autocmd BufEnter todo.txt set syntax=todo
 luafile ~/.config/nvim/treesitter.lua
 set termguicolors
 colorscheme portal
