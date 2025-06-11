@@ -413,8 +413,8 @@ nnoremap <Leader>s :call IndentPreviouslyChangedBlock(1)<CR>
 vnoremap <Leader>i <
 vnoremap <Leader>s >
 " similar to above mappings but for the current line. i chose "a" as the prefix
-" key because it is currently not being used, it is on another hand than the leader
-" key, and it does not use the same finger as either indent key
+" key because it is currently not being used, it is on another hand than the
+" leader key, and it does not use the same finger as either indent key
 " ! LANGMAP-affected (see LANGMAP section)
 nnoremap <Leader>ai V<
 nnoremap <Leader>as V>
