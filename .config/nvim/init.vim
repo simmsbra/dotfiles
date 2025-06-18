@@ -264,6 +264,20 @@ function! JumpToTagInPreviousWindow()
     execute "normal! \<C-]>"
 endfunction
 
+function! SaveView()
+    let w:savedView = winsaveview()
+endfunction
+
+" if a window view is saved, restore it. else, do ctrl-o
+function! RestoreSavedViewIfPresentElseCtrlO()
+    if exists("w:savedView")
+        call winrestview(w:savedView)
+        unlet w:savedView
+    else
+        execute "normal! \<C-o>"
+    endif
+endfunction
+
 
 " i want my manually opened and closed folds for all files to persist after
 " exiting. this is taken from :h loadview. the 'silent!' ignores errors, like
@@ -456,6 +470,10 @@ cabbrev h vert help
 inoremap <F3> <C-R>=strftime("%Y-%m-%d")<CR>
 " easier way to enter command-line mode
 nnoremap <Leader>; :
+" easy way to save my place (including scroll position) and then restore it.
+" can't use the e mark anymore, but don't need it
+nnoremap me :call SaveView()<CR>
+nnoremap <C-o> :call RestoreSavedViewIfPresentElseCtrlO()<CR>
 
 " ---------- Custom Mappings, Task Tracking Markers ----------------------------
 "
