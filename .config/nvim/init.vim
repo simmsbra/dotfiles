@@ -372,6 +372,8 @@ tnoremap ,n <C-\><C-n>
 " ! LANGMAP-affected (see LANGMAP section)
 nnoremap <Leader>3h yiw<C-w>h:terminal<CR>arg "\b<C-\><C-n>pa\b"<CR>
 nnoremap <Leader>3l yiw<C-w>l:terminal<CR>arg "\b<C-\><C-n>pa\b"<CR>
+vnoremap <Leader>3h y<C-w>h:terminal<CR>arg "\b<C-\><C-n>pa\b"<CR>
+vnoremap <Leader>3l y<C-w>l:terminal<CR>arg "\b<C-\><C-n>pa\b"<CR>
 " easy way to open files from grep results in a terminal buffer
 " ! LANGMAP-affected (see LANGMAP section)
 nnoremap <Leader>4h 0"zyE<C-w>h:e <C-r>z<CR>
