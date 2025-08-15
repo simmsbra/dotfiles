@@ -431,14 +431,14 @@ nnoremap <Leader>h :source ~/.config/nvim/init.vim<CR>| " [r]eload
 for letter in split('a b c d e f g h i j k l m n o p q r s t u v w x y z')
     " (:h v:count)
     execute 'nnoremap'
-    \   .. ' <Leader>m' .. letter
-    \   .. ' :<C-U>call RunMacroWithLangremap("' .. letter .. '", v:count1)<CR>'
+        \ .. ' <Leader>m' .. letter
+        \ .. ' :<C-U>call RunMacroWithLangremap("' .. letter .. '", v:count1)<CR>'
 endfor
 " call a macro on the set of currently visually selected lines
 for letter in split('a b c d e f g h i j k l m n o p q r s t u v w x y z')
     execute "vnoremap"
-    \   .. " <Leader>m" .. letter
-    \   .. " :'<'>call RunMacroWithLangremap(\"" .. letter .. "\", 1)<CR>"
+        \ .. " <Leader>m" .. letter
+        \ .. " :'<'>call RunMacroWithLangremap(\"" .. letter .. "\", 1)<CR>"
 endfor
 " editing a macro by pasting it into your buffer and then yanking it back into
 " the register does not work well, especially if there are things like newlines
@@ -449,8 +449,8 @@ endfor
 " editing the macro text right away without first constructing that command.
 for letter in split('a b c d e f g h i j k l m n o p q r s t u v w x y z')
     execute 'nnoremap'
-    \   .. ' <Leader>q' .. letter
-    \   .. ' :call OpenMacroForEditing("' .. letter .. '")<CR>'
+        \ .. ' <Leader>q' .. letter
+        \ .. ' :call OpenMacroForEditing("' .. letter .. '")<CR>'
 endfor
 " quick way to surround an entire line with parentheses
 nnoremap <Leader>( I(<Esc>A)<Esc>^
