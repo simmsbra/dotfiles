@@ -1,6 +1,7 @@
 " when executing a macro that contains langmapped keys, they are executed as
 " as if they were not langmapped. but this doesn't happen if 'langremap' is
 " set, so temporarily set it while executing the macro
+" https://github.com/neovim/neovim/issues/11614
 function! RunMacroWithLangremap(registerLetter, count)
     set langremap
     execute "normal! " .. a:count .. "@" .. a:registerLetter

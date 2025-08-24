@@ -57,7 +57,7 @@ if lsmod | grep pcspkr > /dev/null ; then
     echo '-----------------------------------------------------'
     echo 'Note: PC Speaker (system beep) is on.'
     echo 'Run "sudo /usr/sbin/modprobe -r pcspkr" to disable it.'
-    echo 'Run "TODO" to disable it between restarts.'
+    echo 'Run [TODO] to disable it between restarts.'
     echo '-----------------------------------------------------'
 fi
 
@@ -65,7 +65,7 @@ if [ -f ~/.fortunes/fortunes ] && [ -f ~/.fortunes/fortunes.dat ]; then
     fortune ~/.fortunes/
 fi
 
-export PATH="$PATH:/opt/nvim-linux64/bin"
+export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 
 # make sure that sudoedit and other tools use neovim, if it's available
 if command -v nvim > /dev/null ; then
