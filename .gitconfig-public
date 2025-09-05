@@ -14,3 +14,5 @@
 	meta = yellow
 	frag = magenta
 	func = blue
+[diff]
+	wsErrorHighlight = old,new
