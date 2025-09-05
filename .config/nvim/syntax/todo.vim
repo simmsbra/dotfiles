@@ -1,5 +1,4 @@
-syntax match Special /[0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}[^\[\]:]*:/ " date headers
-syntax match Special /[0-9]\{4\}-[0-9]\{2\}[^\[\]:]*:/ " date headers
+syntax match Special /[0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\} (\a\{3\}):/ " date headers
 
 syntax match Identifier /(\a\+ly) / " (daily), (monthly), etc
 syntax match Identifier /(every \d\+ \a\+) / " (every 2 months), etc
