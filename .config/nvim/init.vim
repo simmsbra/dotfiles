@@ -341,6 +341,15 @@ set grepprg=rg\ --vimgrep " don't include the default "-uu" argument to ripgrep
 "
 nnoremap [ <Nop>
 :let mapleader = "["
+" sometimes i accidentally use my tmux prefix (backtick) within vim outside of
+" tmux, so make that leader do nothing. i never use vim's backtick anyway
+for letter in split('a b c d e f g h i j k l m n o p q r s t u v w x y z')
+    execute 'nnoremap `' .. letter .. ' <Nop>'
+endfor
+" sometimes i accidentally hit the key to the right of my right pinky, thinking
+" that that's the hyphen key
+inoremap <PageDown> <Nop>
+" quick way to insert a blank line under current line
 nnoremap <Leader>o o<Esc>k
 " write but don't change the marks in the file, because some are used for the
 " indentation mappings. this way, writing between pasting something and using an
