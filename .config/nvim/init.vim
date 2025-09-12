@@ -127,6 +127,25 @@ function! UnfoldFoldsIfFileIsShortEnoughToFitOnScreen()
 endfunction
 autocmd BufReadPost * :call UnfoldFoldsIfFileIsShortEnoughToFitOnScreen()
 
+function! SplitThenCenterIfInLargeWindow()
+    let windowWidth = winwidth(0)
+    " for me: maximized application window on VM, big    screen = 254 cols
+    " for me: maximized application window on VM, normal screen = 190 cols
+    if windowWidth > 225
+        let shiftAmount = 35
+    elseif windowWidth > 180
+        let shiftAmount = 22
+    else
+        return
+    endif
+
+    vsplit
+    " move to right window and then increase its size so that the buffer's
+    " content will be more in the middle of the screen
+    call feedkeys("\<C-w>l\<C-w>" .. shiftAmount .. ">")
+endfunction
+autocmd VimEnter * :call SplitThenCenterIfInLargeWindow()
+
 " shift (indent) the previously changed lines (can be pasted lines) by the
 " number of shifts given. for example, if you pass 2 and your shiftwidth is
 " set to 4, then the block would be indented 8 characters. a negative number
