@@ -1,10 +1,36 @@
-syntax match Special /[0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\} (\a\{3\}):/ " date headers
+" Notes:
+"     - ":help :syn-pattern"
+"     - ":help /\zs" - using \zs and \ze to start and end the match, in order to
+"       get the highlighting correct
 
-syntax match Identifier /(\a\+ly) / " (daily), (monthly), etc
-syntax match Identifier /(every \d\+ \a\+) / " (every 2 months), etc
-syntax match Identifier /(\w\+ of every \w\+) / " (1st of every month), etc
 
-syntax match Type /^\s*\*\+\s/ " task completion markers
-syntax match Type /^\s*-\s/ " task completion markers
+" ---------- Date Headers ------------------------------------------------------
+"
+" 1970-01-01 (Thu):
+" ^^^^^^^^^^^^^^^^^ highlight
+syntax match Special /[0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\} (\a\{3\}):/
 
-syntax match Identifier /^\s\+[a-z]\./ " option list a., b., etc
+" ---------- Frequency Labels for Recurring Tasks ------------------------------
+"
+" (monthly) delete old files
+" ^^^^^^^^^ highlight
+syntax match Identifier /(\a\+ly)\ze / " (daily), (monthly), etc
+syntax match Identifier /(every \d\+ \a\+)\ze / " (every 2 months), etc
+syntax match Identifier /(\w\+ of every \w\+)\ze / " (1st of every month), etc
+
+" ---------- Task Completion Markers -------------------------------------------
+"
+" *** task to do
+"     - task done
+"     ^ highlight
+" ^^^ highlight
+syntax match Type /^\s*-/
+syntax match Type /^\s*\zs\*\+\ze /
+
+" ---------- Option List Letters -----------------------------------------------
+"
+" a. option 1
+" b. option 2
+" ^^ highlight
+"
+syntax match Identifier /^\s\+\zs[a-z]\.\ze /
