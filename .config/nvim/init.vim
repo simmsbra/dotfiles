@@ -355,6 +355,8 @@ autocmd FileType html setlocal shiftwidth=2 tabstop=2
 "
 set wildignorecase
 set grepprg=rg\ --vimgrep " don't include the default "-uu" argument to ripgrep
+" make ctrl-d, ctrl-u move 1/4 the screen height instead of 1/2
+execute 'set scroll=' . (winheight(0) / 4)
 
 " ---------- Custom Mappings ---------------------------------------------------
 "
