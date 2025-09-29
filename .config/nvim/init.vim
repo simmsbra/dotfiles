@@ -338,8 +338,7 @@ set foldmethod=indent
 " by default, lines that start with a # are treated differently during indent
 " folding (foldignore="#"). don't do that -- treat no lines specially.
 set foldignore=""
-" excludes 'hor' so that horizontal movement commands don't open folds
-set foldopen=block,mark,percent,quickfix,search,tag,undo
+set foldopen-=hor " make sure that horizontal movement commands don't open folds
 
 " ---------- Indentation -------------------------------------------------------
 "
