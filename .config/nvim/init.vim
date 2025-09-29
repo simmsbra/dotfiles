@@ -357,6 +357,9 @@ set wildignorecase
 set grepprg=rg\ --vimgrep " don't include the default "-uu" argument to ripgrep
 " make ctrl-d, ctrl-u move 1/4 the screen height instead of 1/2
 execute 'set scroll=' . (winheight(0) / 4)
+" make sure ":lcd" commands don't get saved in views, since that was causing my
+" pwd to suddenly change upon opening certain files with saved views
+set viewoptions-=curdir
 
 " ---------- Custom Mappings ---------------------------------------------------
 "
