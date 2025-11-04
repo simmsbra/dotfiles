@@ -24,7 +24,7 @@ syntax match Identifier /(\w\+ of every \w\+)\ze / " (1st of every month), etc
 "     - task done
 "     ^ highlight
 " ^^^ highlight
-syntax match Type /^\s*-/
+syntax match Type /^\s*\zs-\ze /
 syntax match Type /^\s*\zs\*\+\ze /
 
 " ---------- Option List Letters -----------------------------------------------
