@@ -362,10 +362,27 @@ set viewoptions-=curdir
 
 " ---------- Custom Mappings ---------------------------------------------------
 "
+function! UnmapIfMappingExists(lhsList)
+    for lhs in a:lhsList
+        if !empty(maparg(lhs))
+            execute "unmap " .. lhs
+        endif
+    endfor
+endfunction
+" first unmap all the default mappings that use my desired <Leader>
+" :h default-mappings
+call UnmapIfMappingExists(["[d", "[D"])
+call UnmapIfMappingExists(["[q", "[Q", "[<C-q>"])
+call UnmapIfMappingExists(["[l", "[L", "[<C-l>"])
+call UnmapIfMappingExists(["[t", "[T", "[<C-t>"])
+call UnmapIfMappingExists(["[a", "[A"])
+call UnmapIfMappingExists(["[b", "[B"])
+call UnmapIfMappingExists(["[<Space>"])
+" set <Leader>
 nnoremap [ <Nop>
 :let mapleader = "["
 " sometimes i accidentally use my tmux prefix (backtick) within vim outside of
-" tmux, so make that leader do nothing. i never use vim's backtick anyway
+" tmux, so make that key do nothing. i never use vim's backtick anyway
 for letter in split('a b c d e f g h i j k l m n o p q r s t u v w x y z')
     execute 'nnoremap `' .. letter .. ' <Nop>'
 endfor
