@@ -2,7 +2,7 @@
 
 ```
 1. Install packages of programs that don't need to be bleeding edge.
-    sudo apt install fortunes-mod git tmux xsel zsh
+    sudo apt install fortune-mod git tmux xsel zsh
     (tmux should be >= 3.2 for the "copy-command" feature)
 2. Install the dotfiles and set up the git repository.
     cd
