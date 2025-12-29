@@ -15,7 +15,7 @@ syntax match Special /[0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\} (\a\{3\}):/
 " (monthly) delete old files
 " ^^^^^^^^^ highlight
 syntax match Identifier /(\a\+ly)\ze / " (daily), (monthly), etc
-syntax match Identifier /(every \d\+ \a\+)\ze / " (every 2 months), etc
+syntax match Identifier /(every \d\+ .*s)\ze / " (every 5 work days), etc
 syntax match Identifier /(\w\+ of every \w\+)\ze / " (1st of every month), etc
 
 " ---------- Task Completion Markers -------------------------------------------
