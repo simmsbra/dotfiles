@@ -8,28 +8,6 @@ function! RunMacroWithLangremap(registerLetter, count)
     set langnoremap
 endfunction
 
-" opens up the command-line-window and constructs a :let @a="" command for
-" editing whichever macro register letter is given. just edit the macro text and
-" then hit enter. note that you'll have to escape " characters; and if you want
-" to insert a special character, you can use C-v
-function! OpenMacroForEditing(registerLetter)
-    " to insert the macro register's literal text into the command, <C-r><C-o>
-    " (:h i_CTRL-R_CTRL-O) is used. but that wouldn't escape any double quotes,
-    " so instead of putting the macro's register letter right after <C-r><C-o>,
-    " we use the expression register (:h @=) to insert the result of escaping
-    " any double quotes within the macro register's contents
-    call feedkeys(
-        \ "q:"
-        \ .. "i"
-        \ .. ":let @" .. a:registerLetter .. "="
-        \ .. '"'
-        \ .. "\<C-r>\<C-o>=escape(@" .. a:registerLetter .. ", '\"')\<CR>"
-        \ .. '" "C-v to insert special characters; \ to escape double quotes'
-        \ .. "\<Esc>"
-        \ .. '0f"l'
-    \ )
-endfunction
-
 " Return a foldtext that has a smaller minimum width, that looks cooler, and
 " that uses spacing to align the line text with the unfolded line text if
 " possible -- this results in the fact that when you unfold the fold, the line
@@ -491,18 +469,6 @@ for letter in split('a b c d e f g h i j k l m n o p q r s t u v w x y z')
     execute "vnoremap"
         \ .. " <Leader>m" .. letter
         \ .. " :'<'>call RunMacroWithLangremap(\"" .. letter .. "\", 1)<CR>"
-endfor
-" editing a macro by pasting it into your buffer and then yanking it back into
-" the register does not work well, especially if there are things like newlines
-" in your macro. so the better way is to edit the macro register directly by
-" using use a command like :let @a="[macro keys here]"
-"
-" this mapping does most of the lifting for you so that you can just start
-" editing the macro text right away without first constructing that command.
-for letter in split('a b c d e f g h i j k l m n o p q r s t u v w x y z')
-    execute 'nnoremap'
-        \ .. ' <Leader>q' .. letter
-        \ .. ' :call OpenMacroForEditing("' .. letter .. '")<CR>'
 endfor
 " quick way to surround an entire line with parentheses
 nnoremap <Leader>( I(<Esc>A)<Esc>^

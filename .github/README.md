@@ -16,7 +16,10 @@
     chsh -s $(which zsh) $(whoami)
 5. Install neovim >= 0.10.2 from pre-built binaries.
     (0.10.0 contains my folding fixes; 0.10.1 breaks when I open help)
-6. Install the vim speeddating plugin.
+6. Install the vim-macaroni plugin.
+    cd ~/.local/share/nvim/site/pack/utilities/start
+    git clone https://github.com/simmsbra/vim-macaroni
+7. Install the vim-speeddating plugin.
     cd ~/.local/share/nvim/site/pack/utilities/start/speeddating
     git clone https://github.com/tpope/vim-speeddating
     mv vim-speeddating/* .
