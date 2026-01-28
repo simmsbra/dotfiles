@@ -112,7 +112,7 @@ function! SplitThenCenterIfInLargeWindow()
     if windowWidth > 225
         let shiftAmount = 35
     elseif windowWidth > 180
-        let shiftAmount = 22
+        let shiftAmount = 40
     else
         return
     endif
