@@ -74,7 +74,7 @@ btouch() { # "bash touch" -- create an executable bash script template file
         return
     fi
 
-    echo '#!/bin/bash\n' > "$1"
+    echo '#!/bin/bash\n#  Reminder: Use shellcheck\n' > "$1"
     chmod u+x "$1"
 }
 
