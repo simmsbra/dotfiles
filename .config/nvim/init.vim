@@ -300,6 +300,7 @@ else
 endif
 autocmd BufEnter .aliases set syntax=bash
 autocmd BufEnter todo.txt set syntax=todo
+let c_syntax_for_h = 1
 luafile ~/.config/nvim/treesitter.lua
 set termguicolors
 colorscheme portal
