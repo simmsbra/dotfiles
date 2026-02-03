@@ -617,6 +617,7 @@ inoremap { el if ()<CR>{<CR>}<CR>else<CR>{<CR>}<Esc>5kf(a
 inoremap {ie if () {<CR>} else if () {<CR>} else {<CR>}<Esc>3kf(a
 inoremap { ie if ()<CR>{<CR>}<CR>else if ()<CR>{<CR>}<CR>else<CR>{<CR>}<Esc>8kf(a
 inoremap {f for () {<CR>}<Esc>kf(a
+inoremap { f for ()<CR>{<CR>}<Esc>2kf(a
 inoremap {fe foreach () {<CR>}<Esc>kf(a
 inoremap {tc try {<CR>} catch () {<CR>}<Esc>kf(a
 
