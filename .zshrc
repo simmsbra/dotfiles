@@ -32,9 +32,13 @@ bindkey -M vicmd q vi-backward-word
 bindkey -M vicmd Q vi-backward-blank-word
 
 # prompt with present dir and privilege character (%/#)
+#
 # if needed, it will truncate itself (eating the left side) to guarantee at
-# least 45 characters of space after the prompt
-PROMPT='%-45<...<%F{cyan}%~ %F{white}%# '
+# least 45 characters of space after the prompt. and the privilege character
+# will be reversed / in "standout" mode so that it is easier to see which lines
+# in your terminal were command prompt lines, which is useful when scanning
+# results of search/find commands
+PROMPT='%-45<...<%F{cyan}%~ %F{white}%S%#%s '
 
 # lowercase letters can match uppercase letters with tab completion
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
