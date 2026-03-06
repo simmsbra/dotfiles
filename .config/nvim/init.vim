@@ -276,6 +276,13 @@ function! RestoreSavedViewIfPresentElseCtrlO()
     endif
 endfunction
 
+function! ShowGitBlameOfSelection()
+    " we first want to cd into the directory that the current file is in, since
+    " we could be inside of a git submodule
+    execute "!cd $(dirname %);"
+        \ .. " git blame $(basename %) -L " .. line("'<") .. "," .. line("'>")
+endfunction
+
 
 " i want my manually opened and closed folds for all files to persist after
 " exiting. this is taken from :h loadview. the 'silent!' ignores errors, like
@@ -408,9 +415,9 @@ vnoremap <Leader>3l y<C-w>l:terminal<CR>arg "\b<C-\><C-n>pa\b"<CR>
 nnoremap <Leader>4h 0"zyE<C-w>h:e <C-r>=fnameescape(@z)<CR><CR>
 nnoremap <Leader>4l 0"zyE<C-w>l:e <C-r>=fnameescape(@z)<CR><CR>
 " easy way to call 'git blame' on the currently visually-selected lines.
-" note: ex commands in visual mode begin like ":'<,'>", so we delete that part.
-" shortened from: 'vnoremap <Leader>5 :<BS><BS><BS><BS><BS>execute' ...
-vnoremap <Leader>5 q:ccexe "!git blame % -L "..line("'<")..","..line("'>")<CR>
+" note: ex commands in visual mode begin like ":'<,'>", so we delete that part
+" by using <C-U>. see :help c_CTRL-U
+vnoremap <Leader>5 :<C-U>call ShowGitBlameOfSelection()<CR>
 " instead of jumping to tag in a new split, do so in the previous window
 nnoremap <C-w>] :call JumpToTagInPreviousWindow()<CR>
 nnoremap <C-w><C-]> :call JumpToTagInPreviousWindow()<CR>
