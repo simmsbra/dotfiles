@@ -68,6 +68,7 @@ alias seu='sudo du -ahd1 | sort -h'
 alias mkd='mkdir'
 alias sau='sudo apt update && sudo apt upgrade'
 alias ar='clear'
+alias fd='fdfind'
 btouch() { # "bash touch" -- create an executable bash script template file
     if [ -f "$1" ]; then
         echo "Error: $1 already exists."
