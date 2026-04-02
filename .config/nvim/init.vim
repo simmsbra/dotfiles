@@ -394,8 +394,9 @@ nnoremap <C-^> <Nop>
 " turn off search highlighting
 " ! LANGMAP-affected (see LANGMAP section)
 nnoremap <Leader>r :nohlsearch<CR>
-" refresh the syntax highlighting for when its parsing gets messed up
-nnoremap <Leader>1 :syntax sync fromstart<CR>
+" refresh the syntax highlighting for when its parsing gets messed up.
+" also, do the ':set foldignore=' workaround for when folds get messed up.
+nnoremap <Leader>1 :syntax sync fromstart <Bar> set foldignore=<CR>
 " toggle line numbers so can highlight text with mouse (for copying) without
 " also selecting the line number text
 nnoremap <Leader>U :set number! relativenumber!<CR>
