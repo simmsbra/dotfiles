@@ -382,10 +382,10 @@ nnoremap <Leader>o o<Esc>k
 " indentation mapping to indent the pasted text does not end up indenting the
 " entire buffer.
 nnoremap <Leader>e :lockmarks write<CR>
-" write and quit
-nnoremap <Leader>E :wq<CR>
 " quit window
 nnoremap <Leader>u :quit<CR>
+" quit window without complaining about unsaved changes
+nnoremap <Leader>U :quit!<CR>
 " swap to the alternate buffer. easier than CTRL-6
 nnoremap <C-j> :edit #<CR>
 " quick way to start typing different buffer name to switch to it
@@ -397,9 +397,6 @@ nnoremap <Leader>r :nohlsearch<CR>
 " refresh the syntax highlighting for when its parsing gets messed up.
 " also, do the ':set foldignore=' workaround for when folds get messed up.
 nnoremap <Leader>1 :syntax sync fromstart <Bar> set foldignore=<CR>
-" toggle line numbers so can highlight text with mouse (for copying) without
-" also selecting the line number text
-nnoremap <Leader>U :set number! relativenumber!<CR>
 " easier way to escape insert mode than using pinky
 inoremap ,n <Esc>
 vnoremap ,n <Esc>
@@ -618,6 +615,10 @@ set langmap=hr,rh,HR,RH,ds,sd,DS,SD,bq,qb,BQ,QB
 " but without losing my current identation. this can be done with the action of
 " <C-\><C-o> but <C-o> is easier to type
 inoremap <C-o> <C-\><C-o>
+" easier way to do C-Y and C-E
+nnoremap K <C-Y>| " i never use the K action
+nnoremap J <C-E>| " i use the J action; we'll remap it to a different key below
+nnoremap Z J| " makes ZZ or ZQ impossible, but i have my own mappings for those
 
 " ---------- Flow Control Block Snippets ---------------------------------------
 "
