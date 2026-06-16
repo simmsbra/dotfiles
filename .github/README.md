@@ -2,7 +2,7 @@
 
 ```
 1. Install packages of programs that don't need to be bleeding edge.
-    sudo apt install fd-find fortune-mod git ripgrep tmux xsel zsh
+    sudo apt install fd-find fortune-mod git ripgrep tmux wl-clipboard zsh
     (tmux should be >= 3.2 for the "copy-command" feature)
 2. Install the dotfiles and set up the git repository.
     cd
@@ -26,5 +26,4 @@
     mv vim-speeddating/.* .
     rm -r vim-speeddating
 (If you open nvim inside tmux, and tmux crashes, install tmux > 3.4)
-(For Wayland, install wl-clipboard instead of xsel, and check commit 46e51953f7)
 ```
