@@ -22,12 +22,13 @@ let s:foreground = s:colorWhite
 let g:colors_name = "portal"
 
 execute "highlight Normal guibg=" .. s:background .. " guifg=" .. s:foreground
-" matches line numbers
+" the foreground of folded lines should match the color of the colorcolumn
 execute "highlight Folded guibg=" .. s:background .. " guifg=NvimDarkGrey4"
+" make the line numbers a bit brighter than default
 highlight LineNr guifg=NvimLightGrey4
-" give all visually-selected things a readable color combo with no syntax
-" highlighting. this solves problems like when visually selecting folds'
-" text color is the same as the fold background color, making them unreadable
+" by default, Visual sets bg but not fg, so syntax highlighting shows through
+" on visual selections, and can cause low contrast legibility problems.
+" to fix this, define a good bg _and_ fg, which eliminates syntax highlighting
 execute "highlight Visual guibg=NvimDarkGrey4 guifg=" .. s:foreground
 
 execute "highlight Constant guifg=" .. s:colorRed
