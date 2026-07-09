@@ -616,9 +616,9 @@ set langmap=hr,rh,HR,RH,ds,sd,DS,SD,bq,qb,BQ,QB
 " <C-\><C-o> but <C-o> is easier to type
 inoremap <C-o> <C-\><C-o>
 " easier way to do C-Y and C-E
-nnoremap K <C-Y>| " i never use the K action
-nnoremap J <C-E>| " i use the J action; we'll remap it to a different key below
-nnoremap Z J| " makes ZZ or ZQ impossible, but i have my own mappings for those
+noremap K <C-Y>| " i never use the K action
+noremap J <C-E>| " i use the J action; we'll remap it to a different key below
+noremap Z J| " makes ZZ or ZQ impossible, but i have my own mappings for those
 
 " ---------- Flow Control Block Snippets ---------------------------------------
 "
