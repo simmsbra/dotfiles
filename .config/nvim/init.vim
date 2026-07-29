@@ -117,10 +117,12 @@ function! SplitThenCenterIfInLargeWindow()
         return
     endif
 
-    vsplit
-    " move to right window and then increase its size so that the buffer's
+    vnew
+    " decrease the width of the new blank window so that the righthand buffer's
     " content will be more in the middle of the screen
-    call feedkeys("\<C-w>l\<C-w>" .. shiftAmount .. ">")
+    call feedkeys("\<C-w>" .. shiftAmount .. "<")
+    " move to right window
+    call feedkeys("\<C-w>l")
 endfunction
 autocmd VimEnter * :call SplitThenCenterIfInLargeWindow()
 
