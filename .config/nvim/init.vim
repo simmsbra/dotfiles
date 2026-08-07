@@ -357,15 +357,17 @@ function! UnmapIfMappingExists(lhsList)
         endif
     endfor
 endfunction
-" first unmap all the default mappings that use my desired <Leader>
-" :h default-mappings
-call UnmapIfMappingExists(["[d", "[D"])
-call UnmapIfMappingExists(["[q", "[Q", "[<C-q>"])
-call UnmapIfMappingExists(["[l", "[L", "[<C-l>"])
-call UnmapIfMappingExists(["[t", "[T", "[<C-t>"])
-call UnmapIfMappingExists(["[a", "[A"])
-call UnmapIfMappingExists(["[b", "[B"])
-call UnmapIfMappingExists(["[<Space>"])
+" first unmap all default mappings that use my <Leader> (:h default-mappings)
+" but don't do it if reloading this file, since plugins may map these after init
+if !v:vim_did_init
+    call UnmapIfMappingExists(["[d", "[D"])
+    call UnmapIfMappingExists(["[q", "[Q", "[<C-q>"])
+    call UnmapIfMappingExists(["[l", "[L", "[<C-l>"])
+    call UnmapIfMappingExists(["[t", "[T", "[<C-t>"])
+    call UnmapIfMappingExists(["[a", "[A"])
+    call UnmapIfMappingExists(["[b", "[B"])
+    call UnmapIfMappingExists(["[<Space>"])
+endif
 " set <Leader>
 nnoremap [ <Nop>
 :let mapleader = "["
