@@ -8,6 +8,17 @@ function! RunMacroWithLangremap(registerLetter, count)
     set langnoremap
 endfunction
 
+" if mapping the Enter key to a function, it should not be run if we're in the
+" command-line window, since then we cannot send the Enter key in order to
+" execute the ex command that we're editing in the command-line window
+function! EnterIfCmdLineWinElseRun(function)
+    if win_gettype() == "command"
+        execute "normal! \<Enter>"
+    else
+        execute "call " .. a:function .. "()"
+    endif
+endfunction
+
 " Return a foldtext that has a smaller minimum width, that looks cooler, and
 " that uses spacing to align the line text with the unfolded line text if
 " possible -- this results in the fact that when you unfold the fold, the line
@@ -427,7 +438,7 @@ nnoremap <C-w><C-]> :call JumpToTagInPreviousWindow()<CR>
 nnoremap <Leader>n z
 nnoremap za <Nop>| " unmap this so forced to use the <Space> mapping
 " quick way to toggle folds. and toggle them in a better way than default
-nnoremap <Space> :call ToggleFoldUntilExpansion()<CR>
+nnoremap <Enter> :call EnterIfCmdLineWinElseRun('ToggleFoldUntilExpansion')<CR>
 " make moving upward and downward to folds only recognize closed folds
 nnoremap <Leader>k :call MoveToNextClosedFoldUpward()<CR>
 nnoremap <Leader>j :call MoveToNextClosedFoldDownward()<CR>
