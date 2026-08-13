@@ -632,6 +632,8 @@ inoremap <C-o> <C-\><C-o>
 noremap K <C-Y>| " i never use the K action
 noremap J <C-E>| " i use the J action; we'll remap it to a different key below
 noremap Z J| " makes ZZ or ZQ impossible, but i have my own mappings for those
+" easier way to redo. i've never used the default U action
+noremap U <C-R>| noremap <C-R> <Nop>
 
 " ---------- Flow Control Block Snippets ---------------------------------------
 "
