@@ -434,9 +434,7 @@ vnoremap <Leader>5 :<C-U>call ShowGitBlameOfSelection()<CR>
 " instead of jumping to tag in a new split, do so in the previous window
 nnoremap <C-w>] :call JumpToTagInPreviousWindow()<CR>
 nnoremap <C-w><C-]> :call JumpToTagInPreviousWindow()<CR>
-" remap frequently-used commands that use 'z' so that they don't use right pinky
-nnoremap <Leader>n z
-nnoremap za <Nop>| " unmap this so forced to use the <Space> mapping
+nnoremap za <Nop>| " unmap this so forced to use my custom mapping
 " quick way to toggle folds. and toggle them in a better way than default
 nnoremap <Enter> :call EnterIfCmdLineWinElseRun('ToggleFoldUntilExpansion')<CR>
 " make moving upward and downward to folds only recognize closed folds
