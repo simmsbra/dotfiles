@@ -276,14 +276,14 @@ function! JumpToTagInPreviousWindow()
 endfunction
 
 function! SaveView()
-    let w:savedView = winsaveview()
+    let b:savedView = winsaveview()
 endfunction
 
 " if a window view is saved, restore it. else, do ctrl-o
 function! RestoreSavedViewIfPresentElseCtrlO()
-    if exists("w:savedView")
-        call winrestview(w:savedView)
-        unlet w:savedView
+    if exists("b:savedView")
+        call winrestview(b:savedView)
+        unlet b:savedView
     else
         execute "normal! \<C-o>"
     endif
