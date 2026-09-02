@@ -129,6 +129,7 @@ function! SplitThenCenterIfInLargeWindow()
     endif
 
     vnew
+    terminal
     " decrease the width of the new blank window so that the righthand buffer's
     " content will be more in the middle of the screen
     call feedkeys("\<C-w>" .. shiftAmount .. "<")
