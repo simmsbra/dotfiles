@@ -417,6 +417,7 @@ nnoremap <Leader>1 :syntax sync fromstart <Bar> set foldignore=<CR>
 " easier way to escape insert mode than using pinky
 inoremap ,n <Esc>
 vnoremap ,n <Esc>
+cnoremap ,n <C-c> | " bug: if <Esc>, any command already typed gets run
 nnoremap ,n <Nop>
 tnoremap ,n <C-\><C-n>
 " easy way to grep (rg) the current word in another split in a terminal buffer
