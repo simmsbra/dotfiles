@@ -403,7 +403,8 @@ nnoremap <Leader>u :quit<CR>
 " quit window without complaining about unsaved changes
 nnoremap <Leader>U :quit!<CR>
 " swap to the alternate buffer. easier than CTRL-6
-nnoremap <Leader>x :edit #<CR>
+" ! LANGMAP-affected (see LANGMAP section)
+nnoremap <Leader>b :edit #<CR>
 " quick way to start typing different buffer name to switch to it
 nnoremap <Leader>f :buffer | " bu[f]fer
 nnoremap <C-^> <Nop>
