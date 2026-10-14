@@ -121,7 +121,7 @@ function! SplitThenCenterIfInLargeWindow()
     " for me: maximized application window on VM, big    screen = 254 cols
     " for me: maximized application window on VM, normal screen = 190 cols
     if windowWidth > 225
-        let shiftAmount = 35
+        let shiftAmount = 40
     elseif windowWidth > 180
         let shiftAmount = 40
     else
