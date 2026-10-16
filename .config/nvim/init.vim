@@ -392,7 +392,7 @@ endfor
 " that that's the hyphen key
 inoremap <PageDown> <Nop>
 " quick way to insert a blank line under current line
-nnoremap <Leader>o o<Esc>k
+nnoremap <Leader>O o<Esc>k
 " write but don't change the marks in the file, because some are used for the
 " indentation mappings. this way, writing between pasting something and using an
 " indentation mapping to indent the pasted text does not end up indenting the
@@ -402,12 +402,8 @@ nnoremap <Leader>e :lockmarks write<CR>
 nnoremap <Leader>u :quit<CR>
 " quit window without complaining about unsaved changes
 nnoremap <Leader>U :quit!<CR>
-" swap to the alternate buffer. easier than CTRL-6
-" ! LANGMAP-affected (see LANGMAP section)
-nnoremap <Leader>b :edit #<CR>
 " quick way to start typing different buffer name to switch to it
 nnoremap <Leader>f :buffer | " bu[f]fer
-nnoremap <C-^> <Nop>
 " turn off search highlighting
 " ! LANGMAP-affected (see LANGMAP section)
 nnoremap <Leader>r :nohlsearch<CR>
@@ -420,6 +416,13 @@ vnoremap ,n <Esc>
 cnoremap ,n <C-c> | " bug: if <Esc>, any command already typed gets run
 nnoremap ,n <Nop>
 tnoremap ,n <C-\><C-n>
+" some alternatives to using the ctrl key
+" ! LANGMAP-affected (see LANGMAP section)
+nmap <Leader>b <C-^> | " swap to the alternate buffer
+nmap <Leader>o <C-o> | " not noremap bc we want the <C-o> mapping below to apply
+nmap <Leader>i <C-i>
+nmap <Leader>] <C-]>
+nmap <Leader>w <C-w>
 " easy way to grep (rg) the current word in another split in a terminal buffer
 " ! LANGMAP-affected (see LANGMAP section)
 nnoremap <Leader>3h yiw<C-w>harg "\b<C-\><C-n>pa\b"<CR>
@@ -458,17 +461,17 @@ vnoremap <Leader>p p
 " once because in dvorak, i is on the left, like <, but it goes in the opposite
 " direction (and vice versa for d)
 " ! LANGMAP-affected (see LANGMAP section)
-nnoremap <Leader>i :call IndentPreviouslyChangedBlock(-1)<CR>
+nnoremap <Leader>S :call IndentPreviouslyChangedBlock(-1)<CR>
 nnoremap <Leader>s :call IndentPreviouslyChangedBlock(1)<CR>
 " use same key sequences from above, but for indenting visually-selected lines
 " ! LANGMAP-affected (see LANGMAP section)
-vnoremap <Leader>i <
+vnoremap <Leader>S <
 vnoremap <Leader>s >
 " similar to above mappings but for the current line. i chose "a" as the prefix
 " key because it is currently not being used, it is on another hand than the
 " leader key, and it does not use the same finger as either indent key
 " ! LANGMAP-affected (see LANGMAP section)
-nnoremap <Leader>ai V<
+nnoremap <Leader>aS V<
 nnoremap <Leader>as V>
 " paste clipboard register under current line while keeping the current
 " indentation level. this mapping is intended to make it easy to paste multiline
